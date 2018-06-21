@@ -1,0 +1,13 @@
+Data_Type,Flag,Fuzhu_Para3,Value,TYPE,SpecifyTypeNum,GUICustom
+NULL,NULL,NULL,0,QPushButton,1,GUICustom
+Info,Updatetrue,Information,The dcy file create successfully. Do you want to open this file?,Qlabel,1,GUICustom
+Null,NULL,Null,13,QSpacerItem,1,GUICustom
+NULL,NULL,NULL,NULL_Value,QPushButton,2,GUICustom
+NULL,NULL,NULL,NULL_Value,QPushButton,3,GUICustom
+NULL,1,NULL,0,QHBoxLayout_M,1,GUICustom
+NULL,2,NULL,0,QHBoxLayout_M,2,GUICustom
+Info,100,Title,Create load dcy file successfully.,UserDefined,1,GUICustom
+Info,102,InfoType,Question,UserDefined,3,GUICustom
+Info,103,ButtonFlag,OkCancel,UserDefined,4,GUICustom
+Info,104,ReturnFlag,1,UserDefined,5,GUICustom
+Info,105,RunStatus,true,UserDefined,6,GUICustom

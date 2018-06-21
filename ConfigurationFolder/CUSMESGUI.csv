@@ -1,0 +1,14 @@
+Num,TYPE,Text,Row,Column,H_Size,V_Size,Data_Type,Flag,Child_node,Parent_node,GuiTypeFlag,SpecifyTypeNum,Fuzhu_Para2,Fuzhu_Para3,Fuzhu_Para4,Fuzhu_Para5
+1,QPushButton,,0,0,1,1,NULL,NULL,NULL,images/info.png,GUICustom,1,NULL,NULL,NULL,NULL
+2,Qlabel,Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtmtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!omtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtmtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!omtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtmtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!Infomtion!,0,1,1,1,NULL,AlignLeft,AlignVCenter,NULL,GUICustom,1,NULL,Updatetrue,Info,Information
+3,QSpacerItem,NULL,1,0,1,1,Null,NULL,NULL,Null,GUICustom,1,Null,Null,Null,Null
+4,QPushButton,OK,1,1,1,1,NULL,NULL,NULL,images/OK_Button.png,GUICustom,2,NULL,NULL,NULL,NULL
+5,QPushButton,CANCLE,1,2,1,1,NULL,NULL,NULL,images/Cancel.png,GUICustom,3,NULL,NULL,NULL,NULL
+6,QHBoxLayout_M,NULL,0,0,1,1,NULL,1,NULL,NULL,GUICustom,1,2,NULL,NULL,NULL
+7,QHBoxLayout_M,NULL,1,0,1,1,NULL,2,NULL,NULL,GUICustom,3,5,NULL,NULL,NULL
+8,UserDefined,Null,Null,Null,Null,Null,Info,100,NULL,NULL,GUICustom,1,Null,Title,Null,Null
+9,UserDefined,Null,Null,Null,Null,Null,Info,102,NULL,NULL,GUICustom,3,Null,InfoType,Null,Null
+10,UserDefined,Null,Null,Null,Null,Null,Info,103,NULL,NULL,GUICustom,4,Null,ButtonFlag,Null,Null
+11,UserDefined,Null,Null,Null,Null,Null,Info,104,NULL,NULL,GUICustom,5,Null,ReturnFlag,Null,Null
+12,UserDefined,Null,Null,Null,Null,Null,Info,105,NULL,NULL,GUICustom,6,Null,RunStatus,Null,Null
+13,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
