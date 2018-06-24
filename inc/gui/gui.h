@@ -10,7 +10,8 @@ Histroy:
 #ifndef GUI_H
 #define GUI_H
 
-#include <QDialog>
+//#include <QDialog>
+#include <QMainWindow>
 
 //添加的头文件如下：
 #include <QLabel>
@@ -28,8 +29,9 @@ Histroy:
 #include <QComboBox>
 #include <QSpacerItem>
 #include <QTableWidget>
-#include <QFile>
+#include <QTextEdit>
 
+#include <QFile>
 #include "inc/gui/groupboxextend.h"
 
 #include "inc/gui/basewindow.h"
@@ -39,7 +41,7 @@ Histroy:
 #include <vector>
 
 
-class GUI : public QDialog
+class GUI : public QMainWindow
 {
     Q_OBJECT
 
@@ -50,8 +52,11 @@ public:
 public:
     void CreatGuiThroughCsvFile(const QString &fileName);
     void GUILayoutFunc(QGridLayout *MGrid, int num1);
-    void GUILayoutFunc(QHBoxLayout *MGrid2, int num1);
+    void GUILayoutFunc(QLayout *layoutObj,int num1);
     void GUILayoutFunc(GroupBoxExtend *MGrid3, int num1);
+
+    void CreatSingleWidget(int intWidgetNum);
+
     QGridLayout *mainLayout;
     CsvFileParse* GuiCsv;
     QList<QStringList> GuiData;
@@ -89,6 +94,8 @@ public:
     CsvFileParse *GuiTableWidgetHeaderCsv[500];
     CsvFileParse *GuiTableWidgetDataCsv[500];
     QString *GuiUserDefined[500];
+    QTextEdit *GuiTextEdit[500];
+
 
     QGroupBox *GuiGroup[500];
     GroupBoxExtend *GuiGroup_E[500];

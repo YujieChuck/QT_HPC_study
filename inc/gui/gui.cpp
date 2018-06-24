@@ -11,7 +11,7 @@
 using namespace std;
 
 GUI::GUI(QWidget *parent)
-    : QDialog(parent){
+    : QMainWindow(parent){
 //    QString CADMATFile = "E:/QT_Practice/0604/ConfigurationFolder/GUI_CADMAT.csv";
 //    m_path = "E:/QT_Practice/0604";
 //    CreatGuiThroughCsvFile(CADMATFile);
@@ -183,194 +183,34 @@ void GUI::GUILayoutFunc(QGridLayout *MGrid,int num1){
     int H_Size = GuiCsv->sheet.data[num1][5].toInt();
     int V_Size = GuiCsv->sheet.data[num1][6].toInt();
     int Para1 = GuiCsv->sheet.data[num1][12].toInt();
-    int Para2 = GuiCsv->sheet.data[num1][13].toInt();
-    //int Para3 = GuiCsv->sheet.data[num1][14].toInt();
-    int flag = GuiCsv->sheet.data[num1][8].toInt();
-    int child = GuiCsv->sheet.data[num1][9].toInt();
-    int Expand = GuiCsv->sheet.data[num1][15].toInt();
-    QStringList header;
 
-    QSizePolicy Qpolicy;
-    switch(Expand){
-        case 0:
-            Qpolicy.setHorizontalPolicy(QSizePolicy::Expanding);
-            Qpolicy.setVerticalPolicy(QSizePolicy::Maximum);
-            break;
-        case 1:
-            Qpolicy.setHorizontalPolicy(QSizePolicy::Maximum);
-            Qpolicy.setVerticalPolicy(QSizePolicy::Expanding);
-            break;
-        case 2:
-            Qpolicy.setHorizontalPolicy(QSizePolicy::Expanding);
-            Qpolicy.setVerticalPolicy(QSizePolicy::Expanding);
-            break;
-    }
-
-
-    QString str_7 = GuiCsv->sheet.data[num1][7];
-    QString str_8 = GuiCsv->sheet.data[num1][8];
-    QString str_9 = GuiCsv->sheet.data[num1][9];
-    QString str_10 = GuiCsv->sheet.data[num1][10];
-    QString str_14 = GuiCsv->sheet.data[num1][14];
-
-    QFile file(m_path + "/" + str_10);
-    QFile file_14(m_path + "/" + str_14);
+    CreatSingleWidget(num1);
 
     if(str == "Qlabel"){
-        GuiLabel[Para1] = new QLabel;
-        GuiLabel[Para1]->setText(GuiCsv->sheet.data[num1][2]);
-
-        if(str_7 == "Picture"){
-            if (file.exists()){
-                GuiLabel[Para1]->setSizeIncrement(100,100);
-                GuiLabel[Para1]->setPixmap(QPixmap(m_path + "/" + str_10));
-                GuiLabel[Para1]->setScaledContents(true);    //而ui->label->setScaledContents(true);为设置QLabel自动缩放，既：显示图像大小自动调整为Qlabel大小。
-                GuiLabel[Para1]->resize(6,6);
-                //GuiLabel[Para1]->setSizePolicy(Qpolicy);
-                GuiLabel[Para1]->show();
-            }
-            else{
-                GuiLabel[Para1]->setText("There is no picture which is " + m_path + "/" + str_10);
-            }
-        }
-
-        if(str_8 == "AlignRight"){
-            if(str_9 == "AlignVCenter"){
-               GuiLabel[Para1]->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
-            }
-            else if(str_9 == "AlignTop"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignRight|Qt::AlignTop);
-            }
-            else if(str_9 == "AlignBaseline"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignRight|Qt::AlignBaseline);
-            }
-            else if(str_9 == "AlignBottom"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignRight|Qt::AlignBottom);
-            }
- }
-        else if(str_8 == "AlignLeft"){
-            if(str_9 == "AlignVCenter"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignLeft|Qt::AlignVCenter);
-            }
-            else if(str_9 == "AlignTop"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignLeft|Qt::AlignTop);
-            }
-            else if(str_9 == "AlignBaseline"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignLeft|Qt::AlignBaseline);
-            }
-            else if(str_9 == "AlignBottom"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignLeft|Qt::AlignBottom);
-            }
-        }
-        else if(str_8 == "AlignHCenter"){
-            if(str_9 == "AlignVCenter"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-            }
-            else if(str_9 == "AlignTop"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
-            }
-            else if(str_9 == "AlignBaseline"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignHCenter|Qt::AlignBaseline);
-            }
-            else if(str_9 == "AlignBottom"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignHCenter|Qt::AlignBottom);
-            }
-        }
-        else if(str_8 == "AlignJustify"){
-            if(str_9 == "AlignVCenter"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignJustify|Qt::AlignVCenter);
-            }
-            else if(str_9 == "AlignTop"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignJustify|Qt::AlignTop);
-            }
-            else if(str_9 == "AlignBaseline"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignJustify|Qt::AlignBaseline);
-            }
-            else if(str_9 == "AlignBottom"){
-                GuiLabel[Para1]->setAlignment(Qt::AlignJustify|Qt::AlignBottom);
-            }
-        }
-        //GuiLabel[Para1]->setSizePolicy(Qpolicy);
-
         MGrid->addWidget(GuiLabel[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QLineEdit"){
-        GuiLineEdit[Para1] = new QLineEdit;
-       // GuiLineEdit[Para1]->setSizePolicy(Qpolicy);
         MGrid->addWidget(GuiLineEdit[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QPushButton"){
-        GuiPushButton[Para1] = new QPushButton;
-        GuiPushButton[Para1]->setText(GuiCsv->sheet.data[num1][2]);
-        if (file.exists()){
-            GuiPushButton[Para1]->setIcon(QIcon(m_path + "/" + str_10));
-        }
-
-        //GuiPushButton[Para1]->setSizePolicy(Qpolicy);
         MGrid->addWidget(GuiPushButton[Para1],Row,column,H_Size,V_Size);
-        GuiPushButtonBatFile[Para1] = new QString(m_path + "/" + str_8);
     }
     else if(str == "QComboBox"){
-        GuiComboBox[Para1] =new QComboBox;
-        GuiComboxCsv[Para1] = new CsvFileParse;
-        if (file.exists()){
-            GuiComboxCsv[Para1]->parseCSV(m_path + "/" + str_10);
-            for(int i=0;i<GuiComboxCsv[Para1]->sheet.data.size();i++){
-                GuiComboBox[Para1]->addItem(GuiComboxCsv[Para1]->sheet.data[i][0]);
-            }
-        }
-        else{
-            GuiComboBox[Para1]->addItem("There is no initialization file which is " + m_path + "/" + str_10);
-        }
-
-        //GuiComboBox[Para1]->setSizePolicy(Qpolicy);
         MGrid->addWidget(GuiComboBox[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QRadioButton"){
-        GuiRadioButton[Para1] =new QRadioButton;
-        GuiRadioButton[Para1]->setText(GuiCsv->sheet.data[num1][2]);
-        //GuiRadioButton[Para1]->setSizePolicy(Qpolicy);
         MGrid->addWidget(GuiRadioButton[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QCheckBox"){
-        GuiCheckBox[Para1] =new QCheckBox;
-        GuiCheckBox[Para1]->setText(GuiCsv->sheet.data[num1][2]);
-        //GuiCheckBox[Para1]->setSizePolicy(Qpolicy);
         MGrid->addWidget(GuiCheckBox[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QSpacerItem"){
-        //QSpacerItem *spacerItem1 = new QSpacerItem(20,20,QSizePolicy::Minimum,QSizePolicy::Expanding);
-        GuiSpacerItem[Para1] = new QSpacerItem(H_Size*20,V_Size*20,QSizePolicy::Minimum,QSizePolicy::Expanding);
         MGrid->addItem(GuiSpacerItem[Para1],Row,column);
-        //MGrid->spacing();
     }
     else if(str == "QTableWidget"){
-        GuiTableWidget[Para1] =new QTableWidget;
-
-        //GuiTableWidget[Para1]->setSizePolicy(Qpolicy);
         MGrid->addWidget(GuiTableWidget[Para1],Row,column,H_Size,V_Size);
-        if (file.exists()){
-            GuiTableWidgetHeaderCsv[Para1] = new CsvFileParse;
-            GuiTableWidgetHeaderCsv[Para1]->parseCSV(m_path + "/" + str_10);
-            GuiTableWidget[Para1]->setRowCount(Para2);
-            GuiTableWidget[Para1]->setColumnCount(GuiTableWidgetHeaderCsv[Para1]->sheet.data[child].size());
-            header = GuiTableWidgetHeaderCsv[Para1]->sheet.data[child];
-            GuiTableWidget[Para1]->setHorizontalHeaderLabels(header);
-//            GuiTableWidget[Para1]->horizontalHeader()
-//            GuiTableWidget[Para1]->horizontalHeader()->setStretchLastSection(true);
-        }
-        if(file_14.exists()){
-            GuiTableWidgetDataCsv[Para1] = new CsvFileParse;
-//            GuiTableWidgetDataCsv[Para1]->parseCSV(m_path + "/" + str_14);
-            GuiTableWidgetDataCsv[Para1]->parseCSV(m_Gui_ConfigPath + "/" + str_14);
-            UpdataTableFromQList(GuiTableWidget[Para1],GuiTableWidgetDataCsv[Para1]->sheet.data,0,0);
-        }
     }
     else if((str == "QGroupBox")&&(str_10 =="Sub")){
-        GuiGroup[flag] = new QGroupBox;
-        GuiGroup[flag]->setTitle(GuiCsv->sheet.data[num1][2]);
-        GuiGroup[flag]->setLayout(GuiGridLayout[child]);
-        GuiGroup[flag]->setSizePolicy(Qpolicy);
         MGrid->addWidget(GuiGroup[flag],Row,column,H_Size,V_Size);
     }
     else if(str == "QHBoxLayout"){
@@ -385,7 +225,135 @@ void GUI::GUILayoutFunc(QGridLayout *MGrid,int num1){
 
 }
 
+void GUI::GUILayoutFunc(QLayout *layoutObj, int num1)
+{
+    QString str = GuiCsv->sheet.data[num1][1];
+    int Para1 = GuiCsv->sheet.data[num1][12].toInt();
+
+    CreatSingleWidget(num1);
+
+    if(str == "Qlabel"){
+        layoutObj->addWidget(GuiLabel[Para1]);
+    }
+    else if(str == "QLineEdit"){
+        layoutObj->addWidget(GuiLineEdit[Para1]);
+    }
+    else if(str == "QPushButton"){
+        layoutObj->addWidget(GuiPushButton[Para1]);
+    }
+    else if(str == "QComboBox"){
+        layoutObj->addWidget(GuiComboBox[Para1]);
+    }
+    else if(str == "QRadioButton"){
+        layoutObj->addWidget(GuiRadioButton[Para1]);
+    }
+    else if(str == "QCheckBox"){
+        layoutObj->addWidget(GuiCheckBox[Para1]);
+    }
+    else if(str == "QSpacerItem"){
+        layoutObj->addStretch();
+    }
+    else if(str == "QTableWidget"){
+        layoutObj->addWidget(GuiTableWidget[Para1]);
+    }
+    else if((str == "QGroupBox")&&(str_10 =="Sub")){
+        layoutObj->addWidget(GuiGroup[flag]);
+    }
+    else if(str == "QHBoxLayout"){
+        layoutObj->addLayout(GuiHBoxLayout[flag]);
+    }
+    else if(str == "GuiVBoxLayout"){
+        layoutObj->addLayout(GuiVBoxLayout[flag]);
+    }
+    else{
+
+    }
+}
+
 void GUI::GUILayoutFunc(QHBoxLayout *MGrid2, int num1){
+    QString str = GuiCsv->sheet.data[num1][1];
+    int Para1 = GuiCsv->sheet.data[num1][12].toInt();
+
+    CreatSingleWidget(num1);
+
+    if(str == "Qlabel"){
+        MGrid2->addWidget(GuiLabel[Para1]);
+    }
+    else if(str == "QLineEdit"){
+        MGrid2->addWidget(GuiLineEdit[Para1]);
+    }
+    else if(str == "QPushButton"){ 
+        MGrid2->addWidget(GuiPushButton[Para1]);
+    }
+    else if(str == "QComboBox"){ 
+        MGrid2->addWidget(GuiComboBox[Para1]);
+    }
+    else if(str == "QRadioButton"){
+        MGrid2->addWidget(GuiRadioButton[Para1]);
+    }
+    else if(str == "QCheckBox"){ 
+        MGrid2->addWidget(GuiCheckBox[Para1]);
+    }
+    else if(str == "QSpacerItem"){
+        MGrid2->addStretch();
+    }
+    else if(str == "QTableWidget"){
+        MGrid2->addWidget(GuiTableWidget[Para1]);
+    }
+    else if((str == "QGroupBox")&&(str_10 =="Sub")){
+        MGrid2->addWidget(GuiGroup[flag]);
+    }
+    else if(str == "QHBoxLayout"){
+        MGrid2->addLayout(GuiHBoxLayout[flag]);
+    }
+    else if(str == "GuiVBoxLayout"){
+        MGrid2->addLayout(GuiVBoxLayout[flag]);
+    }
+    else{
+
+    }
+}
+
+void GUI::GUILayoutFunc(GroupBoxExtend *MGrid3, int num1)
+{
+    QString str = GuiCsv->sheet.data[num1][1];
+    int Para1 = GuiCsv->sheet.data[num1][12].toInt();
+    int flag = GuiCsv->sheet.data[num1][8].toInt();
+
+    QString str_10 = GuiCsv->sheet.data[num1][10];
+
+    if(str == "Qlabel"){
+        MGrid3->addWidget(GuiLabel[Para1]);
+    }
+    else if(str == "QLineEdit"){
+        MGrid3->addWidget(GuiLineEdit[Para1]);
+    }
+    else if(str == "QPushButton"){
+        MGrid3->addWidget(GuiPushButton[Para1]);
+    }
+    else if(str == "QComboBox"){
+        MGrid3->addWidget(GuiComboBox[Para1]);
+    }
+    else if(str == "QRadioButton"){
+        MGrid3->addWidget(GuiRadioButton[Para1]);
+    }
+    else if(str == "QCheckBox"){
+        MGrid3->addWidget(GuiCheckBox[Para1]);
+    }
+    else if(str == "QTableWidget"){
+        MGrid3->addWidget(GuiTableWidget[Para1]);
+    }
+    else if((str == "QGroupBox")&&(str_10 =="Sub")){
+        MGrid3->addWidget(GuiGroup[flag]);
+    }
+    else{
+
+    }
+
+}
+
+void GUI::CreatSingleWidget(int intWidgetNum)
+{
     QString str = GuiCsv->sheet.data[num1][1];
     int Row = GuiCsv->sheet.data[num1][3].toInt();
     int column = GuiCsv->sheet.data[num1][4].toInt();
@@ -500,11 +468,10 @@ void GUI::GUILayoutFunc(QHBoxLayout *MGrid2, int num1){
             }
         }
         //GuiLabel[Para1]->setSizePolicy(Qpolicy);
-        MGrid2->addWidget(GuiLabel[Para1]);
     }
     else if(str == "QLineEdit"){
         GuiLineEdit[Para1] = new QLineEdit;
-        MGrid2->addWidget(GuiLineEdit[Para1]);
+       // GuiLineEdit[Para1]->setSizePolicy(Qpolicy);
     }
     else if(str == "QPushButton"){
         GuiPushButton[Para1] = new QPushButton;
@@ -512,7 +479,8 @@ void GUI::GUILayoutFunc(QHBoxLayout *MGrid2, int num1){
         if (file.exists()){
             GuiPushButton[Para1]->setIcon(QIcon(m_path + "/" + str_10));
         }
-        MGrid2->addWidget(GuiPushButton[Para1]);
+
+        //GuiPushButton[Para1]->setSizePolicy(Qpolicy);
         GuiPushButtonBatFile[Para1] = new QString(m_path + "/" + str_8);
     }
     else if(str == "QComboBox"){
@@ -527,28 +495,26 @@ void GUI::GUILayoutFunc(QHBoxLayout *MGrid2, int num1){
         else{
             GuiComboBox[Para1]->addItem("There is no initialization file which is " + m_path + "/" + str_10);
         }
-        MGrid2->addWidget(GuiComboBox[Para1]);
+
+        //GuiComboBox[Para1]->setSizePolicy(Qpolicy);
     }
     else if(str == "QRadioButton"){
         GuiRadioButton[Para1] =new QRadioButton;
         GuiRadioButton[Para1]->setText(GuiCsv->sheet.data[num1][2]);
-        MGrid2->addWidget(GuiRadioButton[Para1]);
+        //GuiRadioButton[Para1]->setSizePolicy(Qpolicy);
     }
     else if(str == "QCheckBox"){
         GuiCheckBox[Para1] =new QCheckBox;
         GuiCheckBox[Para1]->setText(GuiCsv->sheet.data[num1][2]);
-        MGrid2->addWidget(GuiCheckBox[Para1]);
+        //GuiCheckBox[Para1]->setSizePolicy(Qpolicy);
     }
     else if(str == "QSpacerItem"){
         //QSpacerItem *spacerItem1 = new QSpacerItem(20,20,QSizePolicy::Minimum,QSizePolicy::Expanding);
         GuiSpacerItem[Para1] = new QSpacerItem(H_Size*20,V_Size*20,QSizePolicy::Minimum,QSizePolicy::Expanding);
-        //MGrid2->addItem(GuiSpacerItem[Para1]);
-        MGrid2->addStretch();
     }
     else if(str == "QTableWidget"){
         GuiTableWidget[Para1] =new QTableWidget;
-
-        MGrid2->addWidget(GuiTableWidget[Para1]);
+        //GuiTableWidget[Para1]->setSizePolicy(Qpolicy);
         if (file.exists()){
             GuiTableWidgetHeaderCsv[Para1] = new CsvFileParse;
             GuiTableWidgetHeaderCsv[Para1]->parseCSV(m_path + "/" + str_10);
@@ -556,9 +522,12 @@ void GUI::GUILayoutFunc(QHBoxLayout *MGrid2, int num1){
             GuiTableWidget[Para1]->setColumnCount(GuiTableWidgetHeaderCsv[Para1]->sheet.data[child].size());
             header = GuiTableWidgetHeaderCsv[Para1]->sheet.data[child];
             GuiTableWidget[Para1]->setHorizontalHeaderLabels(header);
+//            GuiTableWidget[Para1]->horizontalHeader()
+//            GuiTableWidget[Para1]->horizontalHeader()->setStretchLastSection(true);
         }
         if(file_14.exists()){
             GuiTableWidgetDataCsv[Para1] = new CsvFileParse;
+//            GuiTableWidgetDataCsv[Para1]->parseCSV(m_path + "/" + str_14);
             GuiTableWidgetDataCsv[Para1]->parseCSV(m_Gui_ConfigPath + "/" + str_14);
             UpdataTableFromQList(GuiTableWidget[Para1],GuiTableWidgetDataCsv[Para1]->sheet.data,0,0);
         }
@@ -568,55 +537,18 @@ void GUI::GUILayoutFunc(QHBoxLayout *MGrid2, int num1){
         GuiGroup[flag]->setTitle(GuiCsv->sheet.data[num1][2]);
         GuiGroup[flag]->setLayout(GuiGridLayout[child]);
         GuiGroup[flag]->setSizePolicy(Qpolicy);
-        MGrid2->addWidget(GuiGroup[flag]);
     }
     else if(str == "QHBoxLayout"){
-        MGrid2->addLayout(GuiHBoxLayout[flag]);
+
     }
     else if(str == "GuiVBoxLayout"){
-        MGrid2->addLayout(GuiVBoxLayout[flag]);
+
     }
     else{
 
     }
 }
 
-void GUI::GUILayoutFunc(GroupBoxExtend *MGrid3, int num1)
-{
-    QString str = GuiCsv->sheet.data[num1][1];
-    int Para1 = GuiCsv->sheet.data[num1][12].toInt();
-    int flag = GuiCsv->sheet.data[num1][8].toInt();
-
-    QString str_10 = GuiCsv->sheet.data[num1][10];
-    if(str == "Qlabel"){
-        MGrid3->addWidget(GuiLabel[Para1]);
-    }
-    else if(str == "QLineEdit"){
-        MGrid3->addWidget(GuiLineEdit[Para1]);
-    }
-    else if(str == "QPushButton"){
-        MGrid3->addWidget(GuiPushButton[Para1]);
-    }
-    else if(str == "QComboBox"){
-        MGrid3->addWidget(GuiComboBox[Para1]);
-    }
-    else if(str == "QRadioButton"){
-        MGrid3->addWidget(GuiRadioButton[Para1]);
-    }
-    else if(str == "QCheckBox"){
-        MGrid3->addWidget(GuiCheckBox[Para1]);
-    }
-    else if(str == "QTableWidget"){
-        MGrid3->addWidget(GuiTableWidget[Para1]);
-    }
-    else if((str == "QGroupBox")&&(str_10 =="Sub")){
-        MGrid3->addWidget(GuiGroup[flag]);
-    }
-    else{
-
-    }
-
-}
 
 void GUI::DataFlagSave(){
     QString DataType,flag,descrip,WidgetType,WigetFlagNum,WigetValue;

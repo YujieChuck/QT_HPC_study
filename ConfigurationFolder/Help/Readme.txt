@@ -3,7 +3,7 @@
 
 ¨U¡¡                 HPC Study                   ¨U
 
-¨U¡¡¡¡ ¡¡            Developer:Yujie.Li             ¨U
+¨U¡¡¡¡ ¡¡      Developer:Yujie.Li             ¨U
 
 ¨U                   2018-06                        ¨U
 
