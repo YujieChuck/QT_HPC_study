@@ -16,8 +16,9 @@ QT_HPC_study::QT_HPC_study():GUI()
     InitialConnection();
     SetGuiDataPath(Gui_MainPath);
     SetGuiDataFile("ConfigurationFolder/GUIData/StudyGUIData.csv");
-
     CreatGuiThroughCsvFile(Gui_MainPath+"/"+qstrGuiFile);
+
+    ReadGuiDataFile();
 
     this->setWindowState(Qt::WindowMaximized);
 }
@@ -31,7 +32,7 @@ QT_HPC_study::QT_HPC_study(QString GuiFile, QString MainPath):GUI(GuiFile, MainP
 
 QT_HPC_study::~QT_HPC_study()
 {
-
+//    WriteGuiDataFile();
 }
 
 void QT_HPC_study::GuiPreFunction()
@@ -41,12 +42,12 @@ void QT_HPC_study::GuiPreFunction()
 
 void QT_HPC_study::ReadGuiDataFile()
 {
-    ReadGuiPara(Gui_DataPath + "/" + Gui_DataFile);
+    ReadGuiPara(GetGuiDataPath() + "/" + GetGuiDataFile());
 }
 
 void QT_HPC_study::WriteGuiDataFile()
 {
-    WriteGuiPara(Gui_DataPath + "/" + Gui_DataFile);
+    WriteGuiPara(GetGuiDataPath() + "/" + GetGuiDataFile());
 }
 
 void QT_HPC_study::InitialConnection()
@@ -70,19 +71,4 @@ void QT_HPC_study::UpdateUserDefinedPara(bool flag)
 //        if(GuiLineEdit[2]!=NULL) GuiLineEdit[2]->setText(ScriptFile);
 //        if(GuiLineEdit[3]!=NULL) GuiLineEdit[3]->setText(Gui_WorkPath);
 //    }
-}
-
-void QT_HPC_study::SetGuiDataPath(QString qstrPath)
-{
-    Gui_DataPath = qstrPath;
-}
-
-QString QT_HPC_study::GetGuiDataPath()
-{
-    return Gui_DataPath;
-}
-
-void QT_HPC_study::SetGuiDataFile(QString qstrGuiDataFile)
-{
-    Gui_DataFile = qstrGuiDataFile;
 }

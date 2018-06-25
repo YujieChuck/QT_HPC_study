@@ -26,7 +26,7 @@ GUI::GUI(QWidget *parent)
 GUI::GUI(QString GuiFile, QString MainPath){
 
     m_path = MainPath;
-    m_Gui_ConfigPath = MainPath;
+    Gui_DataPath = MainPath;
     CreatGuiThroughCsvFile(GuiFile);
 
     //this->show();
@@ -125,6 +125,7 @@ void GUI::CreatGuiThroughCsvFile(const QString &fileName){
             for(int j = temp_H_Start;j <= temp_H_End;j++){
                 GUILayoutFunc(GuiGridLayout[temp_flag],j);
             }
+            //GuiGridLayout[temp_flag]->set
             mainLayout->addLayout(GuiGridLayout[temp_flag],temp_Row,temp_column,temp_H_Size,temp_V_Size);
         }
         else if(temp_str == "QHBoxLayout"){
@@ -186,7 +187,7 @@ void GUI::CreatGuiThroughCsvFile(const QString &fileName){
     GuiPreFunction();
 }
 
-void GUI::GUILayoutFunc(QGridLayout *MGrid,int num1){
+void GUI::GUILayoutFunc(QGridLayout *layoutObj,int num1){
     QString str = GuiCsv->sheet.data[num1][1];
     int Row = GuiCsv->sheet.data[num1][3].toInt();
     int column = GuiCsv->sheet.data[num1][4].toInt();
@@ -199,43 +200,43 @@ void GUI::GUILayoutFunc(QGridLayout *MGrid,int num1){
     CreatSingleWidget(num1);
 
     if(str == "Qlabel"){
-        MGrid->addWidget(GuiLabel[Para1],Row,column,H_Size,V_Size);
+        layoutObj->addWidget(GuiLabel[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QLineEdit"){
-        MGrid->addWidget(GuiLineEdit[Para1],Row,column,H_Size,V_Size);
+        layoutObj->addWidget(GuiLineEdit[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QPushButton"){
-        MGrid->addWidget(GuiPushButton[Para1],Row,column,H_Size,V_Size);
+        layoutObj->addWidget(GuiPushButton[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QComboBox"){
-        MGrid->addWidget(GuiComboBox[Para1],Row,column,H_Size,V_Size);
+        layoutObj->addWidget(GuiComboBox[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QRadioButton"){
-        MGrid->addWidget(GuiRadioButton[Para1],Row,column,H_Size,V_Size);
+        layoutObj->addWidget(GuiRadioButton[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QCheckBox"){
-        MGrid->addWidget(GuiCheckBox[Para1],Row,column,H_Size,V_Size);
+        layoutObj->addWidget(GuiCheckBox[Para1],Row,column,H_Size,V_Size);
     }
     else if(str == "QSpacerItem"){
-        MGrid->addItem(GuiSpacerItem[Para1],Row,column);
+        layoutObj->addItem(GuiSpacerItem[Para1],Row,column);
     }
     else if(str == "QTableWidget"){
-        MGrid->addWidget(GuiTableWidget[Para1],Row,column,H_Size,V_Size);
+        layoutObj->addWidget(GuiTableWidget[Para1],Row,column,H_Size,V_Size);
     }
     else if((str == "QGroupBox")&&(str_10 =="Sub")){
-        MGrid->addWidget(GuiGroup[flag],Row,column,H_Size,V_Size);
+        layoutObj->addWidget(GuiGroup[flag],Row,column,H_Size,V_Size);
     }
     else if(str == "QHBoxLayout"){
-        MGrid->addLayout(GuiHBoxLayout[flag],Row,column,H_Size,V_Size);
+        layoutObj->addLayout(GuiHBoxLayout[flag],Row,column,H_Size,V_Size);
     }
     else if(str == "GuiVBoxLayout"){
-        MGrid->addLayout(GuiVBoxLayout[flag],Row,column,H_Size,V_Size);
+        layoutObj->addLayout(GuiVBoxLayout[flag],Row,column,H_Size,V_Size);
     }
     else if(str == "QGridLayout"){
-        MGrid->addLayout(GuiGridLayout[flag],Row,column,H_Size,V_Size);
+        layoutObj->addLayout(GuiGridLayout[flag],Row,column,H_Size,V_Size);
     }
     else if(str == "QTextEdit"){
-        MGrid->addWidget(GuiTextEdit[Para1],Row,column,H_Size,V_Size);
+        layoutObj->addWidget(GuiTextEdit[Para1],Row,column,H_Size,V_Size);
     }
     else{
 
@@ -296,7 +297,7 @@ void GUI::GUILayoutFunc(QLayout *layoutObj, int num1)
     }
 }
 
-void GUI::GUILayoutFunc(GroupBoxExtend *MGrid3, int num1)
+void GUI::GUILayoutFunc(GroupBoxExtend *GroupBoxEObj, int num1)
 {
     QString str = GuiCsv->sheet.data[num1][1];
     int Para1 = GuiCsv->sheet.data[num1][12].toInt();
@@ -304,31 +305,31 @@ void GUI::GUILayoutFunc(GroupBoxExtend *MGrid3, int num1)
     QString str_10 = GuiCsv->sheet.data[num1][10];
 
     if(str == "Qlabel"){
-        MGrid3->addWidget(GuiLabel[Para1]);
+        GroupBoxEObj->addWidget(GuiLabel[Para1]);
     }
     else if(str == "QLineEdit"){
-        MGrid3->addWidget(GuiLineEdit[Para1]);
+        GroupBoxEObj->addWidget(GuiLineEdit[Para1]);
     }
     else if(str == "QPushButton"){
-        MGrid3->addWidget(GuiPushButton[Para1]);
+        GroupBoxEObj->addWidget(GuiPushButton[Para1]);
     }
     else if(str == "QComboBox"){
-        MGrid3->addWidget(GuiComboBox[Para1]);
+        GroupBoxEObj->addWidget(GuiComboBox[Para1]);
     }
     else if(str == "QRadioButton"){
-        MGrid3->addWidget(GuiRadioButton[Para1]);
+        GroupBoxEObj->addWidget(GuiRadioButton[Para1]);
     }
     else if(str == "QCheckBox"){
-        MGrid3->addWidget(GuiCheckBox[Para1]);
+        GroupBoxEObj->addWidget(GuiCheckBox[Para1]);
     }
     else if(str == "QTableWidget"){
-        MGrid3->addWidget(GuiTableWidget[Para1]);
+        GroupBoxEObj->addWidget(GuiTableWidget[Para1]);
     }
     else if((str == "QGroupBox")&&(str_10 =="Sub")){
-        MGrid3->addWidget(GuiGroup[flag]);
+        GroupBoxEObj->addWidget(GuiGroup[flag]);
     }
     else if(str == "QTextEdit"){
-        MGrid3->addWidget(GuiTextEdit[Para1]);
+        GroupBoxEObj->addWidget(GuiTextEdit[Para1]);
     }
     else{
 
@@ -512,7 +513,7 @@ void GUI::CreatSingleWidget(int intWidgetNum)
         if(file_14.exists()){
             GuiTableWidgetDataCsv[Para1] = new CsvFileParse;
 //            GuiTableWidgetDataCsv[Para1]->parseCSV(m_path + "/" + str_14);
-            GuiTableWidgetDataCsv[Para1]->parseCSV(m_Gui_ConfigPath + "/" + str_14);
+            GuiTableWidgetDataCsv[Para1]->parseCSV(Gui_DataPath + "/" + str_14);
             UpdataTableFromQList(GuiTableWidget[Para1],GuiTableWidgetDataCsv[Para1]->sheet.data,0,0);
         }
     }
@@ -703,7 +704,7 @@ void GUI::WriteGuiPara(const QString &fileName){
             if(GuiTableWidgetDataCsv[WigetFlagNumInt]!=NULL){
                 GuiTableWidgetDataCsv[WigetFlagNumInt]->sheet.data.clear();
                 GuiTableWidgetDataCsv[WigetFlagNumInt]->sheet.data = GetTableData(GuiTableWidget[WigetFlagNumInt]);
-                GuiTableWidgetDataCsv[WigetFlagNumInt]->generateCSV(m_Gui_ConfigPath + "/" +descrip);
+                GuiTableWidgetDataCsv[WigetFlagNumInt]->generateCSV(Gui_DataPath + "/" +descrip);
             }
         }
 
@@ -795,7 +796,7 @@ void GUI::UpdataGuiPara(QList<QStringList> TwoA){
             else if((GuiTableWidget[WigetFlagNumInt]!=NULL)&&(WidgetType == "QTableWidget")){
                 if(GuiTableWidgetDataCsv[WigetFlagNumInt]!=NULL){
                     GuiTableWidgetDataCsv[WigetFlagNumInt]->sheet.data.clear();
-                    GuiTableWidgetDataCsv[WigetFlagNumInt]->parseCSV(m_Gui_ConfigPath + "/" + descrip);
+                    GuiTableWidgetDataCsv[WigetFlagNumInt]->parseCSV(Gui_DataPath + "/" + descrip);
                     UpdataTableFromQList(GuiTableWidget[WigetFlagNumInt],GuiTableWidgetDataCsv[WigetFlagNumInt]->sheet.data,0,0);
                 }
             }
@@ -861,6 +862,26 @@ void GUI::SetGuiFile(const QString &fileName){
 
 QString GUI::GetGuiFile(){
     return GuiFile;
+}
+
+void GUI::SetGuiDataPath(const QString &qstrPath)
+{
+    Gui_DataPath = qstrPath;
+}
+
+QString GUI::GetGuiDataPath()
+{
+    return Gui_DataPath;
+}
+
+void GUI::SetGuiDataFile(const QString &qstrGuiDataFile)
+{
+    Gui_DataFile = qstrGuiDataFile;
+}
+
+QString GUI::GetGuiDataFile()
+{
+    return Gui_DataFile;
 }
 
 //void GUI::SetGuiFlag(const QString &fileName){

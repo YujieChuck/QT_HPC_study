@@ -73,42 +73,12 @@ protected:
     * @outparam :
     *****************************************************************************/
     void UpdateUserDefinedPara(bool flag);   //virtual function
-    /*****************************************************************************
-    * @函数名称 : SetGuiDataPath
-    * @功能描述 : 用于设置界面中所有Widget对应的数值存放路径，（界面所有Widget的数值与显示分离）
-    * @author : yujie.li
-    * @date : 2018/06/24
-    * @version : ver 1.0
-    * @inparam :
-    * @outparam :
-    *****************************************************************************/
-    void SetGuiDataPath(QString qstrPath);
-    /*****************************************************************************
-    * @函数名称 : GetGuiDataPath
-    * @功能描述 : 获取界面中所有Widget对应的数值存放路径
-    * @author : yujie.li
-    * @date : 2018/06/24
-    * @version : ver 1.0
-    * @inparam :
-    * @outparam :
-    *****************************************************************************/
-    QString GetGuiDataPath();
-    /*****************************************************************************
-    * @函数名称 : SetGuiDataFile
-    * @功能描述 : 用于设置界面中所有Widget对应的数值存放的文件，这里必须为CSV文件，（界面所有Widget的数值与显示分离）
-    * @author : yujie.li
-    * @date : 2018/06/24
-    * @version : ver 1.0
-    * @inparam :
-    * @outparam :
-    *****************************************************************************/
-    void SetGuiDataFile(QString qstrGuiDataFile);
 
 
 private:
     QString M_MainPath;
     QString Gui_MainPath;
-    QString Gui_DataPath,Gui_DataFile;
+
 
 };
 

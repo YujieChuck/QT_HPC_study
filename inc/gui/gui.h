@@ -51,35 +51,112 @@ public:
     ~GUI();
 public:
     void CreatGuiThroughCsvFile(const QString &fileName);
-    void GUILayoutFunc(QGridLayout *MGrid, int num1);
-    void GUILayoutFunc(QLayout *layoutObj,int num1);
-    void GUILayoutFunc(GroupBoxExtend *MGrid3, int num1);
 
+protected:
+    void GUILayoutFunc(QGridLayout *layoutObj, int num1);
+    void GUILayoutFunc(QLayout *layoutObj,int num1);
+    void GUILayoutFunc(GroupBoxExtend *GroupBoxEObj, int num1);
     void CreatSingleWidget(int intWidgetNum);
 
+public:
     QGridLayout *mainLayout;
-    CsvFileParse* GuiCsv;
-    QList<QStringList> GuiData;
-    QWidget* GuiQWidget;
-    QString m_Gui_ConfigPath;
 private:
     QString m_path;
     QString GuiFile;
     QString GuiFlag;
+    QString Gui_DataPath,Gui_DataFile;
+    CsvFileParse* GuiCsv;
 
 public:
+    /*****************************************************************************
+    * @函数名称 : SetMainpath
+    * @功能描述 : 用于设置生成界面文件的存放路径，（界面所有Widget的数值与显示分离）
+    * @author : yujie.li
+    * @date : 2018/06/25
+    * @version : ver 1.0
+    * @inparam :
+    * @outparam :
+    *****************************************************************************/
     void SetMainpath(const QString &fileName);
+
+    /*****************************************************************************
+    * @函数名称 : GetMainpath
+    * @功能描述 : 获取生成界面文件的存放路径
+    * @author : yujie.li
+    * @date : 2018/06/25
+    * @version : ver 1.0
+    * @inparam :
+    * @outparam :
+    *****************************************************************************/
     QString GetMainpath();
 
+    /*****************************************************************************
+    * @函数名称 : SetGuiFile
+    * @功能描述 : 用于设置生成界面文件的文件名，这里必须为CSV文件
+    * @author : yujie.li
+    * @date : 2018/06/25
+    * @version : ver 1.0
+    * @inparam :
+    * @outparam :
+    *****************************************************************************/
     void SetGuiFile(const QString &fileName);
+
+    /*****************************************************************************
+    * @函数名称 : GetGuiFile
+    * @功能描述 :获取生成界面文件的文件名
+    * @author : yujie.li
+    * @date : 2018/06/25
+    * @version : ver 1.0
+    * @inparam :
+    * @outparam :
+    *****************************************************************************/
     QString GetGuiFile();
 
-//    void SetGuiFlag(const QString &fileName);
-//    QString GetGuiFlag();
+    /*****************************************************************************
+    * @函数名称 : SetGuiDataPath
+    * @功能描述 : 用于设置界面中所有Widget对应的数值存放路径，（界面所有Widget的数值与显示分离）
+    * @author : yujie.li
+    * @date : 2018/06/24
+    * @version : ver 1.0
+    * @inparam :
+    * @outparam :
+    *****************************************************************************/
+    void SetGuiDataPath(const QString &qstrPath);
 
-    //QList<QWidget> GuiQWidget;
-//    std::vector<QLabel* > AAA;
-//    AAA.push_back();
+    /*****************************************************************************
+    * @函数名称 : GetGuiDataPath
+    * @功能描述 : 获取界面中所有Widget对应的数值存放路径
+    * @author : yujie.li
+    * @date : 2018/06/24
+    * @version : ver 1.0
+    * @inparam :
+    * @outparam :
+    *****************************************************************************/
+    QString GetGuiDataPath();
+
+    /*****************************************************************************
+    * @函数名称 : SetGuiDataFile
+    * @功能描述 : 用于设置界面中所有Widget对应的数值存放的文件，这里必须为CSV文件，（界面所有Widget的数值与显示分离）
+    * @author : yujie.li
+    * @date : 2018/06/24
+    * @version : ver 1.0
+    * @inparam :
+    * @outparam :
+    *****************************************************************************/
+    void SetGuiDataFile(const QString &qstrGuiDataFile);
+
+    /*****************************************************************************
+    * @函数名称 : GetGuiDataFile
+    * @功能描述 : 获取设置界面中所有Widget对应的数值存放的文件
+    * @author : yujie.li
+    * @date : 2018/06/25
+    * @version : ver 1.0
+    * @inparam :
+    * @outparam :
+    *****************************************************************************/
+    QString GetGuiDataFile();
+
+
 
     QLabel *GuiLabel[500];
     QLineEdit *GuiLineEdit[500];
@@ -103,10 +180,7 @@ public:
     QLayout *GuiHBoxLayout[500];
     QLayout *GuiVBoxLayout[500];
 
-    //count
-//    int currentRow,countQlabel,countQEdit,countQHBoxLayout,countQGridLayout;
-//    int countQPushButton,countGroup,countComboBox,countRadioButton;
-//    int countQCheckBox,countQSpacerItem,countQTableWidget;
+
 
     void DataFlagSave();
     QList<QStringList> GuiFunctionData;
