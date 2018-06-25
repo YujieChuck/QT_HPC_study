@@ -5,14 +5,14 @@ Num,TYPE,Text,Row,Column,H_Size,V_Size,Data_Type,Flag,Child_node,Parent_node,Gui
 4,QPushButton,,0,3,1,1,NULL,NULL,NULL,ConfigurationFolder\images\blue_yes.png,GuiStudyPro,3,Complete Edit,NULL,NULL,NULL,,QPushButton3,1,,NULL,NULL,NULL,0,QPushButton,3,GuiStudyPro
 5,QPushButton,,0,4,1,1,NULL,NULL,NULL,ConfigurationFolder\images\blue_atta.png,GuiStudyPro,4,Add attachment,NULL,NULL,NULL,,QPushButton4,1,,NULL,NULL,NULL,0,QPushButton,4,GuiStudyPro
 6,QSpacerItem,NULL,0,5,1,1,NULL,NULL,NULL,NULL,GuiStudyPro,0,NULL,NULL,NULL,NULL,,QSpacerItem0,1,,NULL,NULL,NULL,13,QSpacerItem,0,GuiStudyPro
-7,QTextEdit,default string,0,0,1,1,StudyCode,1,NULL,NULL,GuiStudyPro,0,NULL,0,NULL,NULL,,QTextEdit0,1,,StudyCode,1,0,0,QTextEdit,0,GuiStudyPro
+7,QTextEdit,default string,0,0,1,1,StudyCode,AlignLeft,AlignTop,NULL,GuiStudyPro,0,NULL,0,NULL,NULL,,QTextEdit0,1,,StudyCode,AlignLeft,0,0,QTextEdit,0,GuiStudyPro
 8,QSpacerItem,NULL,0,0,1,1,NULL,NULL,NULL,NULL,GuiStudyPro,1,NULL,NULL,NULL,NULL,,QSpacerItem1,1,,NULL,NULL,NULL,13,QSpacerItem,1,GuiStudyPro
 9,QTableWidget,NULL,0,0,1,1,NULL,NULL,0,ConfigurationFolder/GUIData/TestOutputHeader.csv,GuiStudyPro,0,1,ConfigurationFolder/GUIData/TestOutputTableData.csv,NULL,OutputTableData,,QTableWidget0,1,,NULL,OutputTableData,ConfigurationFolder/GUIData/TestOutputTableData.csv,NULL_Value,QTableWidget,0,GuiStudyPro
-10,Qlabel,Select Ncode directory,0,0,1,1,NULL,AlignLeft,AlignVCenter,NULL,GuiStudyPro,1,NULL,NULL,NULL,NULL,,Qlabel1,1,,NULL,AlignLeft,NULL,0,Qlabel,1,GuiStudyPro
+10,Qlabel,Select Ncode directory,1,0,1,1,NULL,AlignLeft,AlignVCenter,NULL,GuiStudyPro,1,NULL,NULL,NULL,NULL,,Qlabel1,1,,NULL,AlignLeft,NULL,0,Qlabel,1,GuiStudyPro
 11,QHBoxLayout,NULL,0,0,1,1,NULL,0,NULL,NULL,GuiStudyPro,1,6,NULL,NULL,NULL,,QHBoxLayout0,1,,NULL,0,NULL,0,QHBoxLayout,0,GuiStudyPro
-12,QGridLayout,NULL,1,0,1,1,NULL,0,NULL,NULL,GuiStudyPro,7,7,NULL,NULL,NULL,,QGridLayout0,1,,NULL,0,NULL,NULL_Value,QGridLayout,0,GuiStudyPro
-13,QGridLayout_M,NULL,0,0,2,1,NULL,1,NULL,NULL,GuiStudyPro,11,12,NULL,NULL,NULL,,QGridLayout1,1,,NULL,1,NULL,0,QGridLayout_M,1,GuiStudyPro
-14,QGridLayout,NULL,0,0,4,1,NULL,2,NULL,NULL,GuiStudyPro,8,8,NULL,NULL,NULL,,QGridLayout2,1,,NULL,2,NULL,NULL_Value,QGridLayout,2,GuiStudyPro
-15,QGroupBox,Output,4,0,1,1,NULL,4,3,Sub,GuiStudyPro,NULL,NULL,NULL,0,OutputGroup,,QGroupBox4,1,,NULL,OutputGroup,NULL,NULL_Value,QGroupBox,4,GuiStudyPro
+12,QGridLayout,NULL,1,0,10,1,NULL,0,NULL,NULL,GuiStudyPro,7,7,NULL,NULL,NULL,,QGridLayout0,1,,NULL,0,NULL,NULL_Value,QGridLayout,0,GuiStudyPro
+13,QGridLayout_M,NULL,0,0,11,3,NULL,1,NULL,NULL,GuiStudyPro,11,12,NULL,NULL,NULL,,QGridLayout1,1,,NULL,1,NULL,0,QGridLayout_M,1,GuiStudyPro
+14,QGridLayout,NULL,0,0,10,1,NULL,2,NULL,NULL,GuiStudyPro,8,8,NULL,NULL,NULL,,QGridLayout2,1,,NULL,2,NULL,NULL_Value,QGridLayout,2,GuiStudyPro
+15,QGroupBox,Output,10,0,1,1,NULL,4,3,Sub,GuiStudyPro,NULL,NULL,NULL,1,OutputGroup,,QGroupBox4,1,,NULL,OutputGroup,NULL,NULL_Value,QGroupBox,4,GuiStudyPro
 16,QGridLayout,NULL,0,0,1,1,NULL,3,NULL,NULL,GuiStudyPro,9,10,NULL,NULL,NULL,,QGridLayout3,1,,NULL,3,NULL,NULL_Value,QGridLayout,3,GuiStudyPro
-17,QGridLayout_M,NULL,0,1,1,1,NULL,4,NULL,NULL,GuiStudyPro,14,15,NULL,NULL,NULL,,QGridLayout4,1,,NULL,4,NULL,0,QGridLayout_M,4,GuiStudyPro
+17,QGridLayout_M,NULL,0,3,11,1,NULL,4,NULL,NULL,GuiStudyPro,14,15,NULL,NULL,NULL,,QGridLayout4,1,,NULL,4,NULL,0,QGridLayout_M,4,GuiStudyPro

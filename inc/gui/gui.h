@@ -10,7 +10,7 @@ Histroy:
 #ifndef GUI_H
 #define GUI_H
 
-//#include <QDialog>
+#include <QDialog>
 #include <QMainWindow>
 
 //添加的头文件如下：
@@ -41,7 +41,7 @@ Histroy:
 #include <vector>
 
 
-class GUI : public QMainWindow
+class GUI : public QDialog
 {
     Q_OBJECT
 
@@ -100,8 +100,8 @@ public:
     QGroupBox *GuiGroup[500];
     GroupBoxExtend *GuiGroup_E[500];
     QGridLayout *GuiGridLayout[500];
-    QHBoxLayout *GuiHBoxLayout[500];
-    QVBoxLayout *GuiVBoxLayout[500];
+    QLayout *GuiHBoxLayout[500];
+    QLayout *GuiVBoxLayout[500];
 
     //count
 //    int currentRow,countQlabel,countQEdit,countQHBoxLayout,countQGridLayout;

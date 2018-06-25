@@ -125,6 +125,7 @@ void GUI::CreatGuiThroughCsvFile(const QString &fileName){
             for(int j = temp_H_Start;j <= temp_H_End;j++){
                 GUILayoutFunc(GuiGridLayout[temp_flag],j);
             }
+            GuiGridLayout[temp_flag]
             mainLayout->addLayout(GuiGridLayout[temp_flag],temp_Row,temp_column,temp_H_Size,temp_V_Size);
         }
         else if(temp_str == "QHBoxLayout"){

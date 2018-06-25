@@ -1,20 +1,25 @@
 #include "qt_hpc_study.h"
 
 
-QT_HPC_study::QT_HPC_study(QWidget *parent):GUI(parent)
+QT_HPC_study::QT_HPC_study():GUI()
 {
     QDir DDir;
     QString qstrCurrentPath = DDir.currentPath();
-    QString qstrGuiFile = "ConfigurationFolder/StudyGUI.csv";
+    QString qstrMainPathFile = "ConfigurationFolder/StudyGUIMainPath.csv";
     QString qstrJudgeFile = "ConfigurationFolder/GUIData/TestOutputHeader.csv";
-    InitializationProgram(qstrCurrentPath,qstrGuiFile,"QT HPC Study",qstrJudgeFile);
+    QString qstrGuiFile = "ConfigurationFolder/StudyGUI.csv";
+    Gui_MainPath = InitializationProgram(qstrCurrentPath,qstrMainPathFile,"QT HPC Study",qstrJudgeFile);
 
-    GUI::SetMainpath(qstrCurrentPath);
+    GUI::SetMainpath(Gui_MainPath);
 
     GuiPreFunction();
     InitialConnection();
-    SetGuiDataPath(qstrCurrentPath);
+    SetGuiDataPath(Gui_MainPath);
     SetGuiDataFile("ConfigurationFolder/GUIData/StudyGUIData.csv");
+
+    CreatGuiThroughCsvFile(Gui_MainPath+"/"+qstrGuiFile);
+
+    this->setWindowState(Qt::WindowMaximized);
 }
 
 QT_HPC_study::QT_HPC_study(QString GuiFile, QString MainPath):GUI(GuiFile, MainPath)

@@ -10,8 +10,6 @@ Histroy:
 #ifndef QT_HPC_STUDY_H
 #define QT_HPC_STUDY_H
 
-#include <QDialog>
-
 #include <inc/gui/gui.h>
 #include <inc/unity/caeglobalfunction.h>
 
@@ -20,7 +18,7 @@ class QT_HPC_study : public GUI,public caeglobalFunction
     Q_OBJECT
 
 public:
-    QT_HPC_study(QWidget *parent);
+    QT_HPC_study();
     QT_HPC_study(QString GuiFile,QString MainPath);
     ~QT_HPC_study();
 
