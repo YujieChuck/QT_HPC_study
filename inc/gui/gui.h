@@ -43,7 +43,7 @@ Histroy:
 #include "basewindow.h"
 
 
-class GUI : public BaseWindow
+class GUI : public QDialog
 {
     Q_OBJECT
 

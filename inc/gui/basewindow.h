@@ -5,6 +5,7 @@
 #include <QDialog>
 #include "inc/gui/mytitlebar.h"
 #include <QMainWindow>
+
 class BaseWindow : public QMainWindow
 {
     Q_OBJECT

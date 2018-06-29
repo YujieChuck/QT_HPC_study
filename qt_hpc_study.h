@@ -12,14 +12,14 @@ Histroy:
 
 #include <inc/gui/gui.h>
 #include <inc/unity/caeglobalfunction.h>
+#include "inc/gui/basewindow.h"
 
-class QT_HPC_study : public GUI,public caeglobalFunction
+class QT_HPC_study :public BaseWindow ,public caeglobalFunction
 {
     Q_OBJECT
 
 public:
-    QT_HPC_study();
-    QT_HPC_study(QString GuiFile,QString MainPath);
+    QT_HPC_study(QWidget *parent = 0);
     ~QT_HPC_study();
 
 protected:
@@ -33,15 +33,6 @@ protected:
     * @outparam :
     *****************************************************************************/
     void GuiPreFunction();                   //virtual function
-    /*****************************************************************************
-    * @函数名称 : ReadGuiDataFile
-    * @功能描述 : 读取界面的配置文件
-    * @author : yujie.li
-    * @date : 2018/06/24
-    * @version : ver 1.0
-    * @inparam :
-    * @outparam :
-    *****************************************************************************/
     /*****************************************************************************
     * @函数名称 : InitialWindow
     * @功能描述 : 初始化界面的标题栏，并设置icon
@@ -62,6 +53,15 @@ protected:
     * @outparam :
     *****************************************************************************/
     void Downloadstlye();
+    /*****************************************************************************
+    * @函数名称 : ReadGuiDataFile
+    * @功能描述 : 将配置文件中记录的数据刷入界面中
+    * @author : yujie.li
+    * @date : 2018/06/24
+    * @version : ver 1.0
+    * @inparam :
+    * @outparam :
+    *****************************************************************************/
     void ReadGuiDataFile();
     /*****************************************************************************
     * @函数名称 : WriteGuiDataFile
@@ -93,6 +93,8 @@ protected:
     * @outparam :
     *****************************************************************************/
     void UpdateUserDefinedPara(bool flag);   //virtual function
+
+    void SplitGUIWindow();
 
 
 private:

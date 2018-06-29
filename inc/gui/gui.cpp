@@ -10,26 +10,15 @@
 
 using namespace std;
 
-GUI::GUI(QWidget *parent)
-    : BaseWindow(parent){
-//    QString CADMATFile = "E:/QT_Practice/0604/ConfigurationFolder/GUI_CADMAT.csv";
-//    m_path = "E:/QT_Practice/0604";
-//    CreatGuiThroughCsvFile(CADMATFile);
-
-//    //DataFlagSave();
-//    ReadGuiPara(m_path + "\\ConfigurationFolder\\GUIParaconfigfile.csv");
-
-//    setWindowTitle("CeshiTitle");
-//    this->show();
+GUI::GUI(QWidget *parent): QDialog(parent)
+{
 }
 
 GUI::GUI(QString GuiFile, QString MainPath){
-
-    m_path = MainPath;
-    Gui_DataPath = MainPath;
+    SetMainpath(MainPath);
+    SetGuiDataPath(MainPath);
     CreatGuiThroughCsvFile(GuiFile);
 
-    //this->show();
     this->hide();
 }
 

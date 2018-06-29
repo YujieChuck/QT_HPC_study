@@ -10,6 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = QT_HPC_study
 TEMPLATE = app
+PRECOMPILED_HEADER  = head.h
 
 
 SOURCES += main.cpp\
@@ -20,7 +21,8 @@ SOURCES += main.cpp\
     inc/gui/groupboxextend.cpp \
     inc/gui/mytitlebar.cpp \
     inc/gui/csvfilewrite.cpp \
-    inc/unity/caeglobalfunction.cpp
+    inc/unity/caeglobalfunction.cpp \
+    ccodeview.cpp
 
 HEADERS  += qt_hpc_study.h \
     inc/gui/gui.h \
@@ -29,9 +31,12 @@ HEADERS  += qt_hpc_study.h \
     inc/gui/groupboxextend.h \
     inc/gui/mytitlebar.h \
     inc/gui/csvfilewrite.h \
-    inc/unity/caeglobalfunction.h
+    inc/unity/caeglobalfunction.h \
+    head.h \
+    ccodeview.h
+
 
 DISTFILES +=
 
 RESOURCES += \
-    qss_resourse.qrc
+    ConfigurationFolder/images/QSS/qt_hpc_rc.qrc
