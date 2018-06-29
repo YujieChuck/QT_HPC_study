@@ -30,3 +30,8 @@ HEADERS  += qt_hpc_study.h \
     inc/gui/mytitlebar.h \
     inc/gui/csvfilewrite.h \
     inc/unity/caeglobalfunction.h
+
+DISTFILES +=
+
+RESOURCES += \
+    qss_resourse.qrc

@@ -11,7 +11,7 @@
 using namespace std;
 
 GUI::GUI(QWidget *parent)
-    : QDialog(parent){
+    : BaseWindow(parent){
 //    QString CADMATFile = "E:/QT_Practice/0604/ConfigurationFolder/GUI_CADMAT.csv";
 //    m_path = "E:/QT_Practice/0604";
 //    CreatGuiThroughCsvFile(CADMATFile);

@@ -40,8 +40,10 @@ Histroy:
 //#include <caeglobalfunction.h>
 #include <vector>
 
+#include "basewindow.h"
 
-class GUI : public QDialog
+
+class GUI : public BaseWindow
 {
     Q_OBJECT
 

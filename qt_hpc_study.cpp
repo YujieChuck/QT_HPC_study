@@ -19,6 +19,9 @@ QT_HPC_study::QT_HPC_study():GUI()
     CreatGuiThroughCsvFile(Gui_MainPath+"/"+qstrGuiFile);
 
     ReadGuiDataFile();
+    //#########################Intial window#########################//
+    InitialWindow();
+    Downloadstlye();
 
     this->setWindowState(Qt::WindowMaximized);
 }
@@ -38,6 +41,42 @@ QT_HPC_study::~QT_HPC_study()
 void QT_HPC_study::GuiPreFunction()
 {
 
+}
+
+void QT_HPC_study::InitialWindow()
+{
+    // 设置标题栏跑马灯效果，可以不设置;
+    m_titleBar->setTitleRoll();
+    m_titleBar->setTitleIcon(Gui_MainPath + "/ConfigurationFolder/images/Logo.png");
+    m_titleBar->setTitleContent(QStringLiteral("HPC Study v1.0"));
+    m_titleBar->setButtonType(MIN_MAX_BUTTON);
+    m_titleBar->setTitleWidth(this->width());
+    m_titleBar->setBackgroundColor(0,0,20);
+
+
+    //加载样式表
+    QFile file(Gui_MainPath + "/ConfigurationFolder/images/QSS/TitleQss.css");
+    if (file.open(QFile::ReadOnly)){
+        QString qss = QLatin1String(file.readAll());
+        QString paletteColor = qss.mid(20, 7);
+        qApp->setPalette(QPalette(QColor(paletteColor)));
+        qApp->setStyleSheet(qss);
+        file.close();
+    }
+}
+
+void QT_HPC_study::Downloadstlye()
+{
+    //加载样式表
+    QFile file(Gui_MainPath + "/ConfigurationFolder/images/QSS/WidgetQss.css");
+
+    if (file.open(QFile::ReadOnly)){
+        QString qss = QLatin1String(file.readAll());
+        QString paletteColor = qss.mid(20, 7);
+        qApp->setPalette(QPalette(QColor(paletteColor)));
+        qApp->setStyleSheet(qss);
+        file.close();
+    }
 }
 
 void QT_HPC_study::ReadGuiDataFile()
