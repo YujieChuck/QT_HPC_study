@@ -32,36 +32,6 @@ void BaseWindow::initTitleBar()
 
 }
 
-void BaseWindow::paintEvent(QPaintEvent* event)
-{
-    // 	Q_UNUSED(event);
-    // 	QStyleOption opt;
-    // 	opt.init(this);
-    // 	QPainter painter(this);
-    // 	style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
-
-    //设置背景色;
-//    QPainter painter(this);
-//    QPainterPath pathBack;
-//    pathBack.setFillRule(Qt::OddEvenFill);  //OddEvenFill\WindingFill
-//    pathBack.addRoundedRect(QRect(0, 0, this->width(), this->height()), 3, 3);
-//    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
-//    painter.fillPath(pathBack, QBrush(QColor(238, 223, 204)));
-
-    return QWidget::paintEvent(event);
-}
-
-//void BaseWindow::loadStyleSheet(const QString &sheetName)
-//{
-//    QFile file(":/ConfigurationFolder/Resources/" + sheetName + ".css");
-//    file.open(QFile::ReadOnly);
-//    if (file.isOpen())
-//    {
-//        QString styleSheet = this->styleSheet();
-//        styleSheet += QLatin1String(file.readAll());
-//        this->setStyleSheet(styleSheet);
-//    }
-//}
 
 void BaseWindow::onButtonMinClicked()
 {

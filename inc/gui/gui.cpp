@@ -19,7 +19,7 @@ GUI::GUI(QString GuiFile, QString MainPath){
     SetGuiDataPath(MainPath);
     CreatGuiThroughCsvFile(GuiFile);
 
-    this->hide();
+    //this->hide();
 }
 
 GUI::~GUI()

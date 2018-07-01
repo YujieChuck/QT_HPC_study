@@ -14,7 +14,6 @@ PRECOMPILED_HEADER  = head.h
 
 
 SOURCES += main.cpp\
-        qt_hpc_study.cpp \
     inc/gui/gui.cpp \
     inc/gui/basewindow.cpp \
     inc/gui/csvfileparse.cpp \
@@ -22,9 +21,11 @@ SOURCES += main.cpp\
     inc/gui/mytitlebar.cpp \
     inc/gui/csvfilewrite.cpp \
     inc/unity/caeglobalfunction.cpp \
-    ccodeview.cpp
+    ccenterwidget.cpp \
+    qt_hpc_studyy_qmainwindow.cpp \
+    qt_hpc_study_qdialog.cpp
 
-HEADERS  += qt_hpc_study.h \
+HEADERS  += \
     inc/gui/gui.h \
     inc/gui/basewindow.h \
     inc/gui/csvfileparse.h \
@@ -33,7 +34,9 @@ HEADERS  += qt_hpc_study.h \
     inc/gui/csvfilewrite.h \
     inc/unity/caeglobalfunction.h \
     head.h \
-    ccodeview.h
+    ccenterwidget.h \
+    qt_hpc_study_qmainwindow.h \
+    qt_hpc_study_qdialog.h
 
 
 DISTFILES +=

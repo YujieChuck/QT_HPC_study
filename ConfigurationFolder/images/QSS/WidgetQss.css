@@ -266,7 +266,7 @@ padding:3px 10px;
 QMenu,QMenuBar,QMenu:disabled,QMenuBar:disabled{
 color:#DCDCDC;
 background-color:#484848;
-border:1px solid #242424;
+border:0px solid #242424;
 margin:0px;
 }
 

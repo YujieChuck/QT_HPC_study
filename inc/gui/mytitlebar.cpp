@@ -50,17 +50,17 @@ void MyTitleBar::initControl()
     m_pButtonMax->setObjectName("ButtonMax");
     m_pButtonClose->setObjectName("ButtonClose");
 
-    QHBoxLayout* mylayout = new QHBoxLayout(this);
-    mylayout->addWidget(m_pIcon);
-    mylayout->addWidget(m_pTitleContent);
+    m_mylayout = new QHBoxLayout(this);
+    m_mylayout->addWidget(m_pIcon);
+    m_mylayout->addWidget(m_pTitleContent);
 
-    mylayout->addWidget(m_pButtonMin);
-    mylayout->addWidget(m_pButtonRestore);
-    mylayout->addWidget(m_pButtonMax);
-    mylayout->addWidget(m_pButtonClose);
+    m_mylayout->addWidget(m_pButtonMin);
+    m_mylayout->addWidget(m_pButtonRestore);
+    m_mylayout->addWidget(m_pButtonMax);
+    m_mylayout->addWidget(m_pButtonClose);
 
-    mylayout->setContentsMargins(5, 0, 0, 0);
-    mylayout->setSpacing(0);
+    m_mylayout->setContentsMargins(5, 0, 0, 0);
+    m_mylayout->setSpacing(0);
 
     m_pTitleContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     this->setFixedHeight(TITLE_HEIGHT);
@@ -177,6 +177,8 @@ void MyTitleBar::paintEvent(QPaintEvent *event)
     {
         this->setFixedWidth(this->parentWidget()->width());
     }
+
+    //m_mylayout->setContentsMargins(5, 40, 0, 0);
     QWidget::paintEvent(event);
 }
 

@@ -92,6 +92,8 @@ public:
     QString m_titleContent;
     // 按钮类型;
     ButtonType m_buttonType;
+
+    QHBoxLayout* m_mylayout;
 };
 
 
