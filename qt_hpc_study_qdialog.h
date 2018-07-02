@@ -1,3 +1,13 @@
+/****************************************************************************
+**
+** Year    		: 2018/07/02
+** Author  		: YujieChuck
+** E-Mail  		: caeunion@163.com
+** Description	: 该类由我本人创建，用于界面框架的测试；
+**                该类封装了界面重用操作
+** If you have any questions , please contact me
+****************************************************************************/
+
 #ifndef QT_HPC_STUDY_QDIALOG_H
 #define QT_HPC_STUDY_QDIALOG_H
 

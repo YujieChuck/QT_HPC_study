@@ -14,7 +14,8 @@ CCenterWidget::~CCenterWidget()
 
 void CCenterWidget::GuiPreFunction()
 {
-
+    this->mainLayout->setColumnStretch(0,2);
+    this->mainLayout->setColumnStretch(1,1);
 }
 
 void CCenterWidget::InitialWindow()

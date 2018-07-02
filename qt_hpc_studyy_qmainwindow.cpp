@@ -44,6 +44,7 @@ QT_HPC_study::~QT_HPC_study()
 void QT_HPC_study::GuiPreFunction()
 {
 
+
 }
 
 void QT_HPC_study::InitialWindow()
@@ -64,8 +65,6 @@ void QT_HPC_study::InitialWindow()
     //m_titleBar->setTitleWidth(this->width());
     m_titleBar->setTitleWidth(650);
     m_titleBar->setBackgroundColor(0,0,20);
-
-
 
 
     createMenuBar();
@@ -236,4 +235,6 @@ void QT_HPC_study::resizeEvent(QResizeEvent *event)
     //this->centralWidget()->setContentsMargins(0,m_titleBar->height()+m_menuBar->height()-1,0,0);    //It is also works
 
 }
+
+
 

@@ -12,6 +12,9 @@ public:
     CCenterWidget(QString GuiFile,QString MainPath);
     ~CCenterWidget();
 
+public:
+
+
 protected:
     /*****************************************************************************
     * @函数名称 : GuiPreFunction

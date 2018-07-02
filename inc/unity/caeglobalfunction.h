@@ -1,3 +1,13 @@
+/****************************************************************************
+**
+** Year    		: 2018/07/02
+** Author  		: YujieChuck
+** E-Mail  		: caeunion@163.com
+** Description	: 该类由我本人创建，该类的作用是封装一些界面中常用的功能；
+**                该类封装了界面重用操作
+** If you have any questions , please contact me
+****************************************************************************/
+
 #ifndef CAEGLOBALFUNCTION_H
 #define CAEGLOBALFUNCTION_H
 //#pragma once

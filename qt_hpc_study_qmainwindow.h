@@ -1,3 +1,12 @@
+/****************************************************************************
+**
+** Year    		: 2018/07/02
+** Author  		: YujieChuck
+** E-Mail  		: caeunion@163.com
+** Description	: 该类由我本人创建，用于界面框架的测试；
+** If you have any questions , please contact me
+****************************************************************************/
+
 /*******************************************************************************
 Copyright(C):
 FileName:qt_hpc_study.h
@@ -102,9 +111,6 @@ private:
     void createMenuBar();
     void createToolBar();
     void createStatusBar();
-
-
-
 
 private:
 

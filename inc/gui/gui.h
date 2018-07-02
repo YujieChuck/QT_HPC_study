@@ -1,3 +1,13 @@
+/****************************************************************************
+**
+** Year    		: 2018/07/02
+** Author  		: YujieChuck
+** E-Mail  		: caeunion@163.com
+** Description	: 该类由我本人创建，运用类似MVP的模式，将界面、界面文件、界面数据进行了分离
+**                该类实现解析csv文件，生成QT界面上的控件
+** If you have any questions , please contact me
+****************************************************************************/
+
 /*******************************************************************************
 Copyright(C):
 FileName:gui.h
@@ -30,6 +40,7 @@ Histroy:
 #include <QSpacerItem>
 #include <QTableWidget>
 #include <QTextEdit>
+#include <QPlainTextEdit>
 
 #include <QFile>
 #include "inc/gui/groupboxextend.h"

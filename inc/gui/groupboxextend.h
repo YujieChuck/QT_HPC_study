@@ -1,3 +1,15 @@
+/****************************************************************************
+**
+** Year    		: 2018/07/02
+** User  		: YujieChuck
+** E-Mail  		: caeunion@163.com
+** Description	: 本控件来自与网络，本人收藏而来。
+**                具体出处如下：
+**                https://www.cnblogs.com/jiangbin/p/6752957.html
+**                非常感谢############   binbinneu   ############的分享
+**                该类实现Qt自定义控件之可伸缩组合框（GroupBox）控件
+** If you have any questions , please contact me
+****************************************************************************/
 #ifndef GROUPBOXEXTEND_H
 #define GROUPBOXEXTEND_H
 
