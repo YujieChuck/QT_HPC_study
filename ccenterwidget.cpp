@@ -1,6 +1,7 @@
 #include "ccenterwidget.h"
 
 
+
 CCenterWidget::CCenterWidget(QString GuiFile, QString MainPath): GUI(GuiFile,MainPath)
 {
     GuiPreFunction();
@@ -16,6 +17,26 @@ void CCenterWidget::GuiPreFunction()
 {
     this->mainLayout->setColumnStretch(0,2);
     this->mainLayout->setColumnStretch(1,1);
+    if(this->GuiGridLayout[1]!=NULL){
+        this->GuiGridLayout[1]->setRowStretch(0,1);
+        this->GuiGridLayout[1]->setRowStretch(1,20);
+    }
+    if(this->GuiGridLayout[4]!=NULL){
+        this->GuiGridLayout[4]->setRowStretch(0,2);
+        this->GuiGridLayout[4]->setRowStretch(1,1);
+    }
+    for(int i=0;i<500;i++){
+        if(this->GuiPushButton[i]!=NULL){
+            this->GuiPushButton[i]->setObjectName(QString("GuiPushButton%1").arg(i));
+        }
+    }
+
+    //Intial tab widget
+    QTabWidget* tabWidget=new QTabWidget;
+    tabWidget->addTab(this->GuiPushButton[0],trUtf8("tab1"));
+    tabWidget->addTab(this->GuiPushButton[1],trUtf8("tab2"));
+    this->GuiGridLayout[2]->addWidget(tabWidget,0,0,1,3);
+
 }
 
 void CCenterWidget::InitialWindow()

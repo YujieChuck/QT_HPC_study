@@ -6,7 +6,7 @@ Num,TYPE,Text,Row,Column,H_Size,V_Size,Data_Type,Flag,Child_node,Parent_node,Gui
 5,QPushButton,,0,4,1,1,NULL,NULL,NULL,ConfigurationFolder\images\blue_atta.png,GuiStudyPro,5,Add attachment,NULL,NULL,NULL,,QPushButton5,1,,NULL,NULL,NULL,0,QPushButton,5,GuiStudyPro
 6,QSpacerItem,NULL,0,5,1,1,NULL,NULL,NULL,NULL,GuiStudyPro,0,NULL,NULL,NULL,NULL,,QSpacerItem0,1,,NULL,NULL,NULL,13,QSpacerItem,0,GuiStudyPro
 7,QLineEdit,default string,0,6,1,1,StudyCode,100,NULL,NULL,GuiStudyPro,0,NULL,Code file,NULL,NULL,,QLineEdit0,1,,StudyCode,100,Code file,0,QLineEdit,0,GuiStudyPro
-8,QTextEdit,default string,0,0,1,1,StudyCode,AlignLeft,AlignTop,NULL,GuiStudyPro,0,NULL,Origin code,NULL,NULL,,QTextEdit0,1,,StudyCode,AlignLeft,Origin code,0,QTextEdit,0,GuiStudyPro
+8,QTextEdit,default string,0,0,1,1,StudyCode,AlignLeft,AlignTop,ConfigurationFolder/GUIData/CodeText.csv,GuiStudyPro,0,NULL,Origin code,NULL,NULL,,QTextEdit0,1,,StudyCode,AlignLeft,Origin code,0,QTextEdit,0,GuiStudyPro
 9,QSpacerItem,NULL,0,0,1,1,NULL,NULL,NULL,NULL,GuiStudyPro,1,NULL,NULL,NULL,NULL,,QSpacerItem1,1,,NULL,NULL,NULL,13,QSpacerItem,1,GuiStudyPro
 10,QTableWidget,NULL,0,0,1,1,NULL,NULL,0,ConfigurationFolder/GUIData/TestOutputHeader.csv,GuiStudyPro,0,1,ConfigurationFolder/GUIData/TestOutputTableData.csv,NULL,OutputTableData,,QTableWidget0,1,,NULL,OutputTableData,ConfigurationFolder/GUIData/TestOutputTableData.csv,NULL_Value,QTableWidget,0,GuiStudyPro
 11,Qlabel,Select Ncode directory,1,0,1,1,NULL,AlignLeft,AlignVCenter,NULL,GuiStudyPro,1,NULL,NULL,NULL,NULL,,Qlabel1,1,,NULL,AlignLeft,NULL,0,Qlabel,1,GuiStudyPro

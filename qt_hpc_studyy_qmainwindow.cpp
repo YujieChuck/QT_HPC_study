@@ -1,4 +1,5 @@
 #include "qt_hpc_study_qmainwindow.h"
+#include "Demo_MsgNotify/demo_msgnotify.h"
 
 QT_HPC_study::QT_HPC_study(QWidget *parent) : QMainWindow(parent)
 {
@@ -14,6 +15,7 @@ QT_HPC_study::QT_HPC_study(QWidget *parent) : QMainWindow(parent)
     CCenterWidget_Obj = new CCenterWidget(Gui_MainPath+"/"+qstrGuiFile,Gui_MainPath);
     CCenterWidget_Obj->SetGuiDataPath(Gui_MainPath);
     CCenterWidget_Obj->SetGuiDataFile("ConfigurationFolder/GUIData/StudyGUIData.csv");
+    CCenterWidget_Obj->ReadGuiDataFile();
 
 //    QGridLayout* m_MainGridLayout = new QGridLayout(this);
 //    m_MainGridLayout->addWidget(CCenterWidget_Obj);
@@ -23,16 +25,17 @@ QT_HPC_study::QT_HPC_study(QWidget *parent) : QMainWindow(parent)
 
     GuiPreFunction();
     InitialConnection();
-
     ReadGuiDataFile();
 
     //#########################Intial window#########################//
     Downloadstlye();
     InitialWindow();
 
+    Demo_MsgNotify* Demo_MsgNotify_obj = new Demo_MsgNotify(Gui_MainPath,"News","You win 800 million dollars.",0);
+    Demo_MsgNotify_obj->setCycleNum(3);
+    Demo_MsgNotify_obj->ShowMessages();
 
-
-    //this->setWindowState(Qt::WindowMaximized);
+    this->setWindowState(Qt::WindowMaximized);
 }
 
 QT_HPC_study::~QT_HPC_study()
@@ -61,7 +64,7 @@ void QT_HPC_study::InitialWindow()
     m_titleBar->setTitleRoll();
     m_titleBar->setTitleIcon(Gui_MainPath + "/ConfigurationFolder/images/Logo.png");
     m_titleBar->setTitleContent(QStringLiteral("    HPC Study based QMainWindow v1.0  "));
-    //m_titleBar->setButtonType(MIN_MAX_BUTTON);
+    m_titleBar->setButtonType(MIN_MAX_BUTTON);
     //m_titleBar->setTitleWidth(this->width());
     m_titleBar->setTitleWidth(650);
     m_titleBar->setBackgroundColor(0,0,20);
@@ -126,64 +129,39 @@ void QT_HPC_study::UpdateUserDefinedPara(bool flag)
 void QT_HPC_study::createMenuBar()
 {
     m_menuBar = new QMenuBar(this);
-    QAction *action = new QAction(tr("action1"),this);
+    QAction *action = new QAction(tr("Open file"),this);
     QMenu* menu = m_menuBar->addMenu(tr("&File"));
     menu->addAction(action);
-    action = new QAction(tr("action1"),this);
+    action = new QAction(tr("Cut"),this);
     menu = m_menuBar->addMenu(tr("&Edit"));
     menu->addAction(action);
-    action = new QAction(tr("action1"),this);
-    menu = m_menuBar->addMenu(tr("&Debug"));
+    action = new QAction(tr("System setting"),this);
+    menu = m_menuBar->addMenu(tr("Set"));
     menu->addAction(action);
-    action = new QAction(tr("action1"),this);
-    menu = m_menuBar->addMenu(tr("&View"));
-    menu->addAction(action);
-    action = new QAction(tr("action1"),this);
-    menu = m_menuBar->addMenu(tr("&Window"));
-    menu->addAction(action);
-    action = new QAction(tr("action1"),this);
-    menu = m_menuBar->addMenu(tr("&Tools"));
-    menu->addAction(action);
-    action = new QAction(tr("action1"),this);
+    action = new QAction(tr("Document"),this);
     menu = m_menuBar->addMenu(tr("&Help"));
     menu->addAction(action);
 }
 
 void QT_HPC_study::createToolBar()
 {
-    QToolBar *fileToolBar;
-    QToolBar *editToolBar;
+    QToolBar *ToolBar;
+    ToolBar = new QToolBar(this);
+    this->addToolBar(ToolBar);
 
-    fileToolBar = new QToolBar(this);
-    editToolBar = new QToolBar(m_menuBar);
+    QAction *actPrevObj;
+    actPrevObj = new QAction(QIcon(Gui_MainPath + "/ConfigurationFolder/images/blue_left.png"),tr("Next"),m_menuBar);
+    ToolBar->addAction(actPrevObj);
+    ToolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    ToolBar->setIconSize(QSize(50,50));
+    ToolBar->addSeparator();
 
-    QAction *cut;
-    cut = new QAction(tr("cut"),m_menuBar);
-
-
-    addToolBar(fileToolBar);
-    fileToolBar->addAction(cut);
-    fileToolBar->addSeparator();
-
-    cut = new QAction(tr("Copy"),m_menuBar);
-    fileToolBar->addAction(cut);
-    fileToolBar->addSeparator();
-
-    fileToolBar->addAction(QIcon(":/WidgetQss/add_top.png"),"Add");
-    fileToolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    fileToolBar->setIconSize(QSize(50,50));
-
-
-
-//    cut = new QAction(tr("Edit"),this);
-//    editToolBar = addToolBar(tr("Edit"));
-//    editToolBar->addAction(cut);
-
-
-
-
-    //fileToolBar->move(0,m_titleBar->height()+m_menuBar->height());
-//    fileToolBar->move(0,200);
+    QAction *actNextObj;
+    actNextObj = new QAction(QIcon(Gui_MainPath + "/ConfigurationFolder/images/blue_right.png"),tr("Next"),m_menuBar);
+    ToolBar->addAction(actNextObj);
+    ToolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    ToolBar->setIconSize(QSize(50,50));
+    ToolBar->addSeparator();
 }
 
 
@@ -197,6 +175,7 @@ void QT_HPC_study::onButtonMinClicked()
     }
     else
     {
+        CCenterWidget_Obj->WriteGuiDataFile();
         showMinimized();
     }
 }
@@ -234,6 +213,7 @@ void QT_HPC_study::resizeEvent(QResizeEvent *event)
     this->setContentsMargins(0,m_titleBar->height()+m_menuBar->height()-1,0,0);
     //this->centralWidget()->setContentsMargins(0,m_titleBar->height()+m_menuBar->height()-1,0,0);    //It is also works
 
+    Downloadstlye();
 }
 
 

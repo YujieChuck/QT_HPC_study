@@ -48,6 +48,12 @@ void GUI::CreatGuiThroughCsvFile(const QString &fileName){
         GuiGridLayout[i] = NULL;
 
         GuiTextEdit[i]=NULL;
+        GuiTextEditDataFile[i]=NULL;
+
+        GuiTabWidget[i]=NULL;
+        GuiTab[i]=NULL;
+        GuiTabChildWidget[i]=NULL;
+
         GuiHBoxLayout[i]=NULL;
         GuiVBoxLayout[i]=NULL;
     }
@@ -62,6 +68,7 @@ void GUI::CreatGuiThroughCsvFile(const QString &fileName){
     int temp_Row,temp_column,temp_H_Size,temp_V_Size,temp_H_Start,temp_H_End;
     QString temp_str,temp_text;
     QStringList Tempstringlist;
+    QString strTemp12;
 
 
     GuiFlag = GuiCsv->sheet.data[1][11];
@@ -87,6 +94,8 @@ void GUI::CreatGuiThroughCsvFile(const QString &fileName){
         temp_Row = GuiCsv->sheet.data[i][3].toInt();
         temp_column = GuiCsv->sheet.data[i][4].toInt();
         temp_Expand = GuiCsv->sheet.data[i][15].toInt();
+
+        strTemp12 = GuiCsv->sheet.data[i][12];
 
         switch(temp_Expand){
             case 0:
@@ -164,7 +173,16 @@ void GUI::CreatGuiThroughCsvFile(const QString &fileName){
 
             mainLayout->addWidget(GuiGroup_E[temp_flag],temp_Row,temp_column,temp_H_Size,temp_V_Size);
         }
+        else if((temp_str == "QTabWidget")&&(temp_parent !="Sub")){
+            GuiTab[temp_flag] = new QTabWidget;
+            GuiTabChildWidget[temp_flag] = new QWidget();
 
+            GuiTab[temp_flag]->setSizePolicy(Qpolicy);
+            GuiTabChildWidget[temp_flag]->setLayout(GuiGridLayout[temp_child]);
+
+            GuiTab[temp_flag]->addTab(GuiTabChildWidget[temp_flag],QIcon(m_path + "/" + strTemp12), GuiCsv->sheet.data[i][2]);
+            mainLayout->addWidget(GuiTab[temp_flag],temp_Row,temp_column,temp_H_Size,temp_V_Size);
+        }
         else if(temp_str == "UserDefined"){
             GuiUserDefined[temp_H_Start] = new QString("UserDefined" + QString::number(temp_H_Start,10));
         }
@@ -227,6 +245,9 @@ void GUI::GUILayoutFunc(QGridLayout *layoutObj,int num1){
     else if(str == "QTextEdit"){
         layoutObj->addWidget(GuiTextEdit[Para1],Row,column,H_Size,V_Size);
     }
+    else if((str == "QTabWidget")&&(str_10 =="Sub")){
+        layoutObj->addWidget(GuiTab[flag],Row,column,H_Size,V_Size);
+    }
     else{
 
     }
@@ -280,6 +301,9 @@ void GUI::GUILayoutFunc(QLayout *layoutObj, int num1)
     }
     else if(str == "QTextEdit"){
         layoutObj->addWidget(GuiTextEdit[Para1]);
+    }
+    else if((str == "QTabWidget")&&(str_10 =="Sub")){
+        layoutObj->addWidget(GuiTab[flag]);
     }
     else{
 
@@ -362,6 +386,7 @@ void GUI::CreatSingleWidget(int intWidgetNum)
     QString str_8 = GuiCsv->sheet.data[intWidgetNum][8];
     QString str_9 = GuiCsv->sheet.data[intWidgetNum][9];
     QString str_10 = GuiCsv->sheet.data[intWidgetNum][10];
+    QString str_12 = GuiCsv->sheet.data[intWidgetNum][12];
     QString str_14 = GuiCsv->sheet.data[intWidgetNum][14];
 
     QFile file(m_path + "/" + str_10);
@@ -452,6 +477,9 @@ void GUI::CreatSingleWidget(int intWidgetNum)
         GuiPushButton[Para1]->setText(GuiCsv->sheet.data[intWidgetNum][2]);
         if (file.exists()){
             GuiPushButton[Para1]->setIcon(QIcon(m_path + "/" + str_10));
+            //QString aa="border-image:url("+m_path + "/" + str_10+");";//border-image:url(D:/QT_study/Cplus_study/QT_HPC_study/QT_HPC_study/ConfigurationFolder\images\blue_open.png);
+//            GuiPushButton[Para1]->setStyleSheet("border-image: url("+m_path + "/" + str_10+");");
+//        GuiPushButton[Para1]->setFocusPolicy(Qt::StrongFocus);
         }
 
         //GuiPushButton[Para1]->setSizePolicy(Qpolicy);
@@ -578,6 +606,17 @@ void GUI::CreatSingleWidget(int intWidgetNum)
             }
         }
 
+        if (file.exists()){
+            GuiTextEditDataFile[Para1]= new QString(m_path + "/" + str_10);
+        }
+    }
+    else if((str == "QTabWidget")&&(str_10 =="Sub")){
+        GuiTab[flag] = new QTabWidget;
+        GuiTabChildWidget[flag] = new QWidget();
+
+        GuiTab[flag]->setSizePolicy(Qpolicy);
+        GuiTabChildWidget[flag]->setLayout(GuiGridLayout[child]);
+        GuiTab[flag]->addTab(GuiTabChildWidget[flag],QIcon(m_path + "/" + str_12), GuiCsv->sheet.data[intWidgetNum][2]);
     }
     else{
 
@@ -696,6 +735,11 @@ void GUI::WriteGuiPara(const QString &fileName){
                 GuiTableWidgetDataCsv[WigetFlagNumInt]->generateCSV(Gui_DataPath + "/" +descrip);
             }
         }
+        else if((GuiTextEdit[WigetFlagNumInt]!=NULL)&&(WidgetType == "QTextEdit")){
+            if(GuiTextEdit[WigetFlagNumInt]!=NULL){
+                UpdataTextEditData(*GuiTextEdit[WigetFlagNumInt],*GuiTextEditDataFile[WigetFlagNumInt],EWrite);
+            }
+        }
 
         SingleArrary.clear();
         SingleArrary.append(DataType);
@@ -787,6 +831,11 @@ void GUI::UpdataGuiPara(QList<QStringList> TwoA){
                     GuiTableWidgetDataCsv[WigetFlagNumInt]->sheet.data.clear();
                     GuiTableWidgetDataCsv[WigetFlagNumInt]->parseCSV(Gui_DataPath + "/" + descrip);
                     UpdataTableFromQList(GuiTableWidget[WigetFlagNumInt],GuiTableWidgetDataCsv[WigetFlagNumInt]->sheet.data,0,0);
+                }
+            }
+            else if((GuiTextEdit[WigetFlagNumInt]!=NULL)&&(WidgetType == "QTextEdit")){
+                if(GuiTextEdit[WigetFlagNumInt]!=NULL){
+                    UpdataTextEditData(*GuiTextEdit[WigetFlagNumInt],*GuiTextEditDataFile[WigetFlagNumInt],ERead);
                 }
             }
 
@@ -1158,4 +1207,37 @@ void GUI::CreatCheckFunctionData(int num1)
 
     }
     GuiCheckFunctionData.append(SingleArrary);
+}
+
+void GUI::UpdataTextEditData(QTextEdit &TextEditObj, const QString &strFile, int intFlag)
+{
+    if(intFlag == EWrite){
+        QFile file(strFile);
+        if (!file.open(QFile::WriteOnly | QFile::Text))     //
+        {
+            //Print log
+
+            QMessageBox::information(this, "Error Message", "Please Select a Text File!");
+            return;
+        }
+        QTextStream out(&file);                 //分行写入文件
+        out << TextEditObj.toPlainText();
+        file.close();
+    }
+    else{
+        QFile file(strFile);
+        if (!file.open(QFile::ReadOnly | QFile::Text))
+        {
+            //Print log
+
+             QMessageBox::warning(this, tr("Application"),
+                                     tr("Cannot read file %1:\n%2.")
+                                  .arg(strFile)
+                                     .arg(file.errorString()));
+             return;
+        }
+        QTextStream in(&file);
+        TextEditObj.setText(in.readAll());
+        file.close();
+    }
 }

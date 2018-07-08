@@ -44,5 +44,23 @@
         <file>WidgetQss/up_arrow_hover.png</file>
         <file>WidgetQss/right_arrow.png</file>
         <file>WidgetQss/right_arrow_hover.png</file>
+        <file>../blue_atta.png</file>
+        <file>../blue_dele.png</file>
+        <file>../blue_edit.png</file>
+        <file>../blue_email.png</file>
+        <file>../blue_email02.png</file>
+        <file>../blue_help.png</file>
+        <file>../blue_info.png</file>
+        <file>../blue_left.png</file>
+        <file>../blue_main.png</file>
+        <file>../blue_no.png</file>
+        <file>../blue_open.png</file>
+        <file>../blue_pin.png</file>
+        <file>../blue_right.png</file>
+        <file>../blue_save.png</file>
+        <file>../blue_ser.png</file>
+        <file>../blue_set.png</file>
+        <file>../blue_set02.png</file>
+        <file>../blue_yes.png</file>
     </qresource>
 </RCC>

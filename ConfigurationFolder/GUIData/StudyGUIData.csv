@@ -15,4 +15,8 @@ NULL,2,NULL,Value,QGridLayout,2,GuiStudyPro
 NULL,OutputGroup,NULL,Value,QGroupBox,4,GuiStudyPro
 NULL,3,NULL,Value,QGridLayout,3,GuiStudyPro
 NULL,4,NULL,Value,QGridLayout_M,14,GuiStudyPro
+NULL,NULL,NULL,Value,QPushButton,5,GuiStudyPro
+StudyCode,100,Code file,,QLineEdit,0,GuiStudyPro
+NULL,1,NULL,Value,QGridLayout_M,12,GuiStudyPro
+NULL,4,NULL,Value,QGridLayout_M,15,GuiStudyPro
 Data_Type,Flag,Fuzhu_Para3,Value,TYPE,SpecifyTypeNum,GuiTypeFlag

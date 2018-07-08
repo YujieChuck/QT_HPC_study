@@ -12,6 +12,8 @@ TARGET = QT_HPC_study
 TEMPLATE = app
 PRECOMPILED_HEADER  = head.h
 
+INCLUDEPATH +=$$PWD/inc/goodwidget
+
 
 SOURCES += main.cpp\
     inc/gui/gui.cpp \
@@ -23,7 +25,12 @@ SOURCES += main.cpp\
     inc/unity/caeglobalfunction.cpp \
     ccenterwidget.cpp \
     qt_hpc_studyy_qmainwindow.cpp \
-    qt_hpc_study_qdialog.cpp
+    qt_hpc_study_qdialog.cpp \
+    inc/goodwidget/Demo_MsgNotify/demo_msgnotify.cpp \
+    inc/goodwidget/msgNotify/notify.cpp \
+    inc/goodwidget/msgNotify/notifymanager.cpp \
+    inc/gui/Text/codeeditor.cpp \
+    inc/gui/Text/myhighlighter.cpp
 
 HEADERS  += \
     inc/gui/gui.h \
@@ -36,10 +43,15 @@ HEADERS  += \
     head.h \
     ccenterwidget.h \
     qt_hpc_study_qmainwindow.h \
-    qt_hpc_study_qdialog.h
+    qt_hpc_study_qdialog.h \
+    inc/goodwidget/Demo_MsgNotify/demo_msgnotify.h \
+    inc/goodwidget/msgNotify/notify.h \
+    inc/goodwidget/msgNotify/notifymanager.h \
+    inc/gui/Text/codeeditor.h \
+    inc/gui/Text/myhighlighter.h \
+    inc/gui/Text/typedef.h
 
-
-DISTFILES +=
 
 RESOURCES += \
-    ConfigurationFolder/images/QSS/qt_hpc_rc.qrc
+    ConfigurationFolder/images/QSS/qt_hpc_rc.qrc \
+    ConfigurationFolder/images/LQRes/ExampleImage.qrc

@@ -54,6 +54,11 @@ Histroy:
 #include "basewindow.h"
 
 
+enum ETextOper{
+    EWrite = 0,
+    ERead
+};
+
 class GUI : public QDialog
 {
     Q_OBJECT
@@ -185,6 +190,9 @@ public:
     CsvFileParse *GuiTableWidgetDataCsv[500];
     QString *GuiUserDefined[500];
     QTextEdit *GuiTextEdit[500];
+    QString *GuiTextEditDataFile[500];
+    QTabWidget* GuiTab[500];
+    QWidget* GuiTabChildWidget[500];
 
 
     QGroupBox *GuiGroup[500];
@@ -225,7 +233,7 @@ public:
     void DeleSelectedInTable(QTableWidget *Tableobj, int RowStart, int ColumStart, int RowNum, int ColumNum);
 
 private:
-    QList<QStringList> GuiCheckFunctionData;
+
     /*****************************************************************************
     * @函数名称 : CreatCheckFunctionData
     * @功能描述 : 用于check配置文件中是否有遗漏的组件信息未存储，若存在，则自动添加上
@@ -237,7 +245,21 @@ private:
     *****************************************************************************/
     void CreatCheckFunctionData(int num1);
 
+    /*****************************************************************************
+    * @函数名称 : UpdataTextEditData
+    * @功能描述 : 根据文本文件中的数据，更新控件TextEdit中的值
+    * @author : yujie.li
+    * @date : 2018/07/07
+    * @version : ver 1.0
+    * @inparam : 组件编号：num1
+    * @outparam :
+    *****************************************************************************/
+    void UpdataTextEditData(QTextEdit &TextEditObj,const QString & strFile,int intFlag);
 
+
+
+private:
+    QList<QStringList> GuiCheckFunctionData;
 };
 
 #endif // GUI_H

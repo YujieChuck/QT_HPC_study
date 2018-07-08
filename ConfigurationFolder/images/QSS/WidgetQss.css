@@ -704,6 +704,53 @@ QLineEdit,QComboBox,QTableWidget,QListWidget{
     border:1px solid #242424;
 }
 
+
+
+
+QPushButton#GuiPushButton0{
+    min-height:20px;
+    min-width:20px;
+    icon-size:25px;
+    border-radius:10;
+    /*    background-color:transparent;*/
+}
+QPushButton#GuiPushButton1{
+    min-height:20px;
+    min-width:20px;
+    icon-size:25px;
+    border-radius:10;
+/*    background-color:transparent;*/
+}
+QPushButton#GuiPushButton2{
+    min-height:20px;
+    min-width:20px;
+    icon-size:25px;
+    border-radius:10;
+    /*    background-color:transparent;*/
+}
+QPushButton#GuiPushButton3{
+    min-height:20px;
+    min-width:20px;
+    icon-size:25px;
+    border-radius:10;
+/*    background-color:transparent;*/
+}
+QPushButton#GuiPushButton4{
+    min-height:20px;
+    min-width:20px;
+    icon-size:25px;
+    border-radius:10;
+    /*    background-color:transparent;*/
+}
+QPushButton#GuiPushButton5{
+    min-height:20px;
+    min-width:20px;
+    icon-size:25px;
+    border-radius:10;
+/*    background-color:transparent;*/
+}
+
+
 /*Output button*/
 QPushButton#ButtonOutput{
     min-height:25px;
