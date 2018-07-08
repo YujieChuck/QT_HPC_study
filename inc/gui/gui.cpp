@@ -50,7 +50,6 @@ void GUI::CreatGuiThroughCsvFile(const QString &fileName){
         GuiTextEdit[i]=NULL;
         GuiTextEditDataFile[i]=NULL;
 
-        GuiTabWidget[i]=NULL;
         GuiTab[i]=NULL;
         GuiTabChildWidget[i]=NULL;
 
@@ -174,13 +173,15 @@ void GUI::CreatGuiThroughCsvFile(const QString &fileName){
             mainLayout->addWidget(GuiGroup_E[temp_flag],temp_Row,temp_column,temp_H_Size,temp_V_Size);
         }
         else if((temp_str == "QTabWidget")&&(temp_parent !="Sub")){
-            GuiTab[temp_flag] = new QTabWidget;
-            GuiTabChildWidget[temp_flag] = new QWidget();
-
+            if(GuiTab[temp_flag]==NULL){
+                GuiTab[temp_flag] = new QTabWidget;
+            }
             GuiTab[temp_flag]->setSizePolicy(Qpolicy);
-            GuiTabChildWidget[temp_flag]->setLayout(GuiGridLayout[temp_child]);
 
-            GuiTab[temp_flag]->addTab(GuiTabChildWidget[temp_flag],QIcon(m_path + "/" + strTemp12), GuiCsv->sheet.data[i][2]);
+            GuiTabChildWidget[temp_child] = new QWidget();
+            GuiTabChildWidget[temp_child]->setLayout(GuiGridLayout[temp_child]);
+
+            GuiTab[temp_flag]->addTab(GuiTabChildWidget[temp_child],QIcon(m_path + "/" + strTemp12), GuiCsv->sheet.data[i][2]);
             mainLayout->addWidget(GuiTab[temp_flag],temp_Row,temp_column,temp_H_Size,temp_V_Size);
         }
         else if(temp_str == "UserDefined"){
@@ -343,6 +344,9 @@ void GUI::GUILayoutFunc(GroupBoxExtend *GroupBoxEObj, int num1)
     }
     else if(str == "QTextEdit"){
         GroupBoxEObj->addWidget(GuiTextEdit[Para1]);
+    }
+    else if((str == "QTabWidget")&&(str_10 =="Sub")){
+        GroupBoxEObj->addWidget(GuiTab[flag]);
     }
     else{
 
@@ -611,12 +615,15 @@ void GUI::CreatSingleWidget(int intWidgetNum)
         }
     }
     else if((str == "QTabWidget")&&(str_10 =="Sub")){
-        GuiTab[flag] = new QTabWidget;
-        GuiTabChildWidget[flag] = new QWidget();
-
+        if(GuiTab[flag]==NULL){
+            GuiTab[flag] = new QTabWidget;
+        }
         GuiTab[flag]->setSizePolicy(Qpolicy);
-        GuiTabChildWidget[flag]->setLayout(GuiGridLayout[child]);
-        GuiTab[flag]->addTab(GuiTabChildWidget[flag],QIcon(m_path + "/" + str_12), GuiCsv->sheet.data[intWidgetNum][2]);
+
+        GuiTabChildWidget[child] = new QWidget();
+        GuiTabChildWidget[child]->setLayout(GuiGridLayout[child]);
+
+        GuiTab[flag]->addTab(GuiTabChildWidget[child],QIcon(m_path + "/" + str_12), GuiCsv->sheet.data[intWidgetNum][2]);
     }
     else{
 

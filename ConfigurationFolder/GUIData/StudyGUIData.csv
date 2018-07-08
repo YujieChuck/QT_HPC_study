@@ -20,3 +20,13 @@ StudyCode,100,Code file,,QLineEdit,0,GuiStudyPro
 NULL,1,NULL,Value,QGridLayout_M,12,GuiStudyPro
 NULL,4,NULL,Value,QGridLayout_M,15,GuiStudyPro
 Data_Type,Flag,Fuzhu_Para3,Value,TYPE,SpecifyTypeNum,GuiTypeFlag
+NULL,NULL,NULL,Value,QPushButton,6,GuiStudyPro
+NULL,NULL,NULL,Value,QPushButton,10,GuiStudyPro
+NULL,NULL,NULL,Value,QPushButton,11,GuiStudyPro
+NULL,NULL,NULL,Value,QPushButton,12,GuiStudyPro
+NULL,NULL,NULL,Value,QPushButton,13,GuiStudyPro
+NULL,4,NULL,Value,QGridLayout,4,GuiStudyPro
+NULL,0,NULL,Value,QTabWidget,ConfigurationFolder\images\open_old.png,GuiStudyPro
+NULL,OutputGroup,NULL,Value,QGroupBox,5,GuiStudyPro
+NULL,1,NULL,Value,QGridLayout_M,17,GuiStudyPro
+NULL,5,NULL,Value,QGridLayout_M,22,GuiStudyPro

@@ -32,11 +32,6 @@ void CCenterWidget::GuiPreFunction()
     }
 
     //Intial tab widget
-    QTabWidget* tabWidget=new QTabWidget;
-    tabWidget->addTab(this->GuiPushButton[0],trUtf8("tab1"));
-    tabWidget->addTab(this->GuiPushButton[1],trUtf8("tab2"));
-    this->GuiGridLayout[2]->addWidget(tabWidget,0,0,1,3);
-
 }
 
 void CCenterWidget::InitialWindow()
