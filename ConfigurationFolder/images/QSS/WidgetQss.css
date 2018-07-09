@@ -266,7 +266,7 @@ padding:3px 10px;
 QMenu,QMenuBar,QMenu:disabled,QMenuBar:disabled{
 color:#DCDCDC;
 background-color:#484848;
-border:0px solid #242424;
+border:1px solid #242424;
 margin:0px;
 }
 
@@ -280,9 +280,12 @@ height:13px;
 }
 
 QMenu::item:selected,QMenuBar::item:selected{
-color:#DCDCDC;
+/*color:#DCDCDC;*/
+color:#00b4df;
 border:0px solid #242424;
+/*background:#646464;*/
 background:#646464;
+font:bold;
 }
 
 QMenu::separator{
